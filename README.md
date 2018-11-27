@@ -20,3 +20,5 @@ In order to run the "start" script, simply cd into the project root directory (w
 
 ### Important development practices
 It is essential that everyone uses ESLint and Prettier to check and format the code before committing it.
+
+package-lock.json should be committed.
