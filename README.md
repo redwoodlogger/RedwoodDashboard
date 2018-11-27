@@ -16,9 +16,13 @@ We will be using Emotion to style our CSS. Emotion is a CSS in JS library, and i
 ### How to get started
 If you look into package.json, you will see a JSON object with the property "scripts". There are two scripts, "start" and "build". Right now, all we have to care about is the "start" script. The "start" script will run a development server that hosts the React project. It uses hot deployment, meaning that the browser will automatically update itself whenever you make any changes in your code. If we were not using hot deployment, we would have to refresh the browser each time we updated the code. So every time you save changes to your code and switch to the browser, you can be sure that that the browser is running the latest version of code, assuming that there were no errors.
 
-In order to run the "start" script, simply cd into the project root directory (which is where package.json resides), and type "npm run start". This will automatically open a browser which will load the web page.
+In order to run the "start" script, simply cd into the project root directory (which is where package.json resides), and type "npm run start". This will automatically open a browser which will load the web page. If you see "hello there General Kenobi", it means everything went well.
 
 ### Important development practices
 It is essential that everyone uses ESLint and Prettier to check and format the code before committing it.
 
 package-lock.json should be committed.
+
+The node_modules folder and its contents should not be committed.
+
+All line endings will use the LF (Unix style) rather than CRLF (Windows style). Please set up the git extension in your text editor to use LF rather than CRLF. Alternatively, you could set up your text editor to save files with LF rather than CRLF. Best is to do both.
