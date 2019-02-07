@@ -6,12 +6,23 @@ const htmlPlugin = new HtmlWebPackPlugin({
 });
 
 module.exports = {
+  output: {
+    // We need to set the globalObject to "this" in order to let webpack dev server's hot reload
+    // work with worker-loader. Somehow, it throws a "window is not defined error" that is solved
+    // by setting globalObject to "this". https://github.com/webpack/webpack/issues/6642
+    globalObject: "this"
+  },
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: [{ loader: "babel-loader" }, { loader: "eslint-loader" }]
+        // Tried to use eslint-loader, but somehow it throws errors on the redwood.worker.js script
+        use: [{ loader: "babel-loader" }]
+      },
+      {
+        test: /\.worker\.js$/,
+        use: [{ loader: "worker-loader" }]
       }
     ]
   },

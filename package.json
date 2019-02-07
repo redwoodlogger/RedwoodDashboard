@@ -1,5 +1,5 @@
 {
-  "name": "two-takes-photography",
+  "name": "redwood",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -28,7 +28,8 @@
     "prettier": "^1.15.2",
     "webpack": "^4.25.1",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.10"
+    "webpack-dev-server": "^3.1.10",
+    "worker-loader": "^2.0.0"
   },
   "dependencies": {
     "@emotion/core": "^10.0.0-beta.12",
