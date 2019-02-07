@@ -1,13 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Worker from "./redwood.worker";
+import { Global, css } from "@emotion/core";
+import Home from "./Home";
 
-const worker = new Worker();
-worker.postMessage({ message: "Hello there" });
-document.addEventListener("mousemove", event => {
-  console.log(event);
-});
+const App = () => (
+  <React.Fragment>
+    <Global
+      styles={css`
+        html,
+        body,
+        #index {
+          margin: 0;
+          padding: 0;
+          height: 100%;
+        }
+      `}
+    />
+    <Home />
+  </React.Fragment>
+);
 
-const Index = () => <div>Hello there General Kenobi!</div>;
-
-ReactDOM.render(<Index />, document.getElementById("index"));
+ReactDOM.render(<App />, document.getElementById("index"));
