@@ -33,14 +33,7 @@ const PanelButtons = () => (
     >
       Bug Reports
     </Button>
-    <Button
-      css={css`
-        background: white;
-        color: #ff6f61;
-      `}
-    >
-      General Feedback
-    </Button>
+    <Button active={false}>General Feedback</Button>
   </div>
 );
 
