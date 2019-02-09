@@ -11,6 +11,7 @@ const Panels = () => (
     css={css`
       flex: 1;
       display: flex;
+      overflow: hidden;
     `}
   >
     <MainPanel />

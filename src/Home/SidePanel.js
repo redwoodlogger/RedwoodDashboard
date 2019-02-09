@@ -99,6 +99,7 @@ const SidePanel = () => (
       background: #f6f6f6;
       width: 25em;
       padding: 1em 4em 0 2em;
+      overflow-y: scroll;
     `}
   >
     <p>Bug Report #123459</p>
@@ -145,6 +146,7 @@ const SidePanel = () => (
       </div>
     </section>
     <p>Dev Remarks</p>
+    <Comment user="Mervyn" comment="Hello there" date="17 February 2019" />
     <Comment user="Mervyn" comment="Hello there" date="17 February 2019" />
     <Comment user="Mervyn" comment="Hello there" date="17 February 2019" />
     <Comment user="Mervyn" comment="Hello there" date="17 February 2019" />
