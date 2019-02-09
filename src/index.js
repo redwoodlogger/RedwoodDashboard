@@ -3,7 +3,11 @@ import React from "react";
 /** @jsx jsx */
 import { Global, css, jsx } from "@emotion/core";
 import ReactDOM from "react-dom";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import Home from "./Home/index";
+
+library.add(faAngleDown);
 
 const App = () => (
   <div>
