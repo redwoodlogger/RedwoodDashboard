@@ -3,6 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
+import UserBubble from "./shared/UserBubble";
 
 const UserAccount = props => {
   const { children: username } = props;
@@ -14,21 +15,14 @@ const UserAccount = props => {
         margin-right: 4em;
       `}
     >
-      <div
+      <UserBubble
         css={css`
-          width: 2em;
-          height: 2em;
-          background: #4d80cc;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 50%;
           margin-right: 0.5em;
-          color: white;
+          background: #4d80cc;
         `}
       >
         {username[0]}
-      </div>
+      </UserBubble>
       <p
         css={css`
           color: white;
