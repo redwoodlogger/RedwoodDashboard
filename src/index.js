@@ -10,18 +10,20 @@ import Home from "./Home/index";
 library.add(faAngleDown);
 
 const App = () => (
-  <div>
+  <React.Fragment>
     <Global
       styles={css`
         html,
         body,
         #index {
           margin: 0;
+          height: 100%;
         }
 
         html {
           box-sizing: border-box;
         }
+
         *,
         *:before,
         *:after {
@@ -30,7 +32,7 @@ const App = () => (
       `}
     />
     <Home />
-  </div>
+  </React.Fragment>
 );
 
 ReactDOM.render(<App />, document.getElementById("index"));
