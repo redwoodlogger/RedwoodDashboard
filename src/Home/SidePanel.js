@@ -148,6 +148,7 @@ const CommentBox = () => (
           height: 9em;
           border-radius: 0.5em;
           margin-bottom: 0.4em;
+          padding: 0.5em;
           resize: none;
         `}
       />
