@@ -9,10 +9,12 @@ const Button = props => {
   return (
     <button
       css={css`
+        background: #ff6f61;
         padding: 0.4em 0.5em;
         border: none;
         border-radius: 0.6em;
         color: white;
+        cursor: pointer;
       `}
       type="button"
       {...props}
