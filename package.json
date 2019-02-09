@@ -32,11 +32,15 @@
     "worker-loader": "^2.0.0"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.7",
+    "@fortawesome/fontawesome-svg-core": "^1.2.14",
+    "@fortawesome/free-solid-svg-icons": "^5.7.1",
+    "@fortawesome/react-fontawesome": "^0.1.4",
     "emotion": "^10.0.7",
+    "i": "^0.3.6",
+    "npm": "^6.7.0",
     "prop-types": "^15.6.2",
-    "react": "^16.8.1",
-    "react-dom": "^16.8.1",
-    "react-emotion": "^10.0.0"
+    "@emotion/core": "10.0.7",
+    "react": "16.8.1",
+    "react-dom": "16.8.1"
   }
 }
