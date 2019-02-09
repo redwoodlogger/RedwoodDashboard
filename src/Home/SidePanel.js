@@ -93,40 +93,63 @@ Comment.propTypes = {
   date: PropTypes.string.isRequired
 };
 
-const SidePanel = () => (
-  <aside
+const Group = props => {
+  const { children } = props;
+  return (
+    <section
+      css={css`
+        margin-bottom: 2em;
+      `}
+    >
+      {children}
+    </section>
+  );
+};
+
+const GroupTitle = props => {
+  const { children } = props;
+  return (
+    <p
+      css={css`
+        color: #949494;
+        margin: 0.5em 0;
+      `}
+    >
+      {children}
+    </p>
+  );
+};
+
+GroupTitle.propTypes = {
+  children: PropTypes.string.isRequired
+};
+
+const CommentBox = () => (
+  <div
     css={css`
-      background: #f6f6f6;
-      width: 25em;
-      padding: 1em 4em 0 2em;
-      overflow-y: scroll;
+      background: white;
+      height: 12em;
+      border-top: 1px solid #e5e5e5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     `}
   >
-    <p>Bug Report #123459</p>
-    <section>
-      <p>Assigned Tags</p>
-      <div
+    <div
+      css={css`
+        display: flex;
+        flex-direction: column;
+      `}
+    >
+      <textarea
         css={css`
-          display: flex;
-          flex-wrap: wrap;
+          border: 1px solid #e5e5e5;
+          width: 24em;
+          height: 9em;
+          border-radius: 0.5em;
+          margin-bottom: 0.4em;
+          resize: none;
         `}
-      >
-        <Hashtag>#hashtag</Hashtag>
-        <Hashtag>#longerhashtag</Hashtag>
-        <Hashtag>#shorttag</Hashtag>
-        <Hashtag>#superlonghashtag</Hashtag>
-        <Hashtag>#hashhash</Hashtag>
-        <Hashtag>#tagtag</Hashtag>
-      </div>
-      <input
-        css={css`
-          border: 1px solid #cccccc;
-          border-radius: 0.2em;
-          width: 100%;
-          height: 2.2em;
-          margin-top: 0.5em;
-        `}
-        placeholder="Add a tag"
       />
       <div
         css={css`
@@ -134,23 +157,97 @@ const SidePanel = () => (
           justify-content: end;
         `}
       >
-        <Button
-          css={css`
-            margin-top: 0.3em;
-            margin-left: auto;
-          `}
-          color="#FF6F61"
-        >
-          Add tag
-        </Button>
+        <Button>Submit</Button>
       </div>
-    </section>
-    <p>Dev Remarks</p>
-    <Comment user="Mervyn" comment="Hello there" date="17 February 2019" />
-    <Comment user="Mervyn" comment="Hello there" date="17 February 2019" />
-    <Comment user="Mervyn" comment="Hello there" date="17 February 2019" />
-    <Comment user="Mervyn" comment="Hello there" date="17 February 2019" />
-    <Comment user="Mervyn" comment="Hello there" date="17 February 2019" />
+    </div>
+  </div>
+);
+
+const Details = props => {
+  const { children } = props;
+  return (
+    <div
+      css={css`
+        padding: 1em 4em 0 2em;
+        overflow-y: scroll;
+        flex: 1;
+      `}
+    >
+      {children}
+    </div>
+  );
+};
+
+const SidePanel = () => (
+  <aside
+    css={css`
+      background: #f6f6f6;
+      width: 25em;
+      display: flex;
+      flex-direction: column;
+      border-left: 1px solid #e5e5e5;
+    `}
+  >
+    <Details>
+      <p
+        css={css`
+          margin-bottom: 1em;
+        `}
+      >
+        Bug Report #123459
+      </p>
+      <Group>
+        <GroupTitle>Assigned Tags</GroupTitle>
+        <div
+          css={css`
+            display: flex;
+            flex-wrap: wrap;
+          `}
+        >
+          <Hashtag>#hashtag</Hashtag>
+          <Hashtag>#longerhashtag</Hashtag>
+          <Hashtag>#shorttag</Hashtag>
+          <Hashtag>#superlonghashtag</Hashtag>
+          <Hashtag>#hashhash</Hashtag>
+          <Hashtag>#tagtag</Hashtag>
+        </div>
+        <input
+          css={css`
+            border: 1px solid #cccccc;
+            border-radius: 0.2em;
+            width: 100%;
+            height: 2.2em;
+            margin-top: 0.5em;
+          `}
+          placeholder="Add a tag"
+        />
+        <div
+          css={css`
+            display: flex;
+            justify-content: end;
+          `}
+        >
+          <Button
+            css={css`
+              margin-top: 0.3em;
+              margin-left: auto;
+            `}
+            color="#FF6F61"
+          >
+            Add tag
+          </Button>
+        </div>
+      </Group>
+      <Group>
+        <GroupTitle>Dev Remarks</GroupTitle>
+        <Comment user="Mervyn" comment="Hello there" date="17 February 2019" />
+        <Comment user="Mervyn" comment="Hello there" date="17 February 2019" />
+        <Comment user="Mervyn" comment="Hello there" date="17 February 2019" />
+        <Comment user="Mervyn" comment="Hello there" date="17 February 2019" />
+        <Comment user="Mervyn" comment="Hello there" date="17 February 2019" />
+      </Group>
+    </Details>
+    <CommentBox />
   </aside>
 );
 
