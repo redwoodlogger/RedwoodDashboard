@@ -1,23 +1,32 @@
+// eslint-disable-next-line no-unused-vars
 import React from "react";
+/** @jsx jsx */
+import { Global, css, jsx } from "@emotion/core";
 import ReactDOM from "react-dom";
-import { Global, css } from "@emotion/core";
-import Home from "./Home";
+import Home from "./Home/index";
 
 const App = () => (
-  <React.Fragment>
+  <div>
     <Global
       styles={css`
         html,
         body,
         #index {
           margin: 0;
-          padding: 0;
-          height: 100%;
+        }
+
+        html {
+          box-sizing: border-box;
+        }
+        *,
+        *:before,
+        *:after {
+          box-sizing: inherit;
         }
       `}
     />
     <Home />
-  </React.Fragment>
+  </div>
 );
 
 ReactDOM.render(<App />, document.getElementById("index"));

@@ -1,6 +1,8 @@
+// eslint-disable-next-line no-unused-vars
 import React from "react";
 import PropTypes from "prop-types";
-import { css } from "@emotion/core";
+/** @jsx jsx */
+import { css, jsx } from "@emotion/core";
 
 const UserAccount = props => {
   const { children: username } = props;
@@ -63,7 +65,7 @@ Logo.propTypes = {
 const Navbar = () => (
   <nav
     css={css`
-      background-color: #274c77;
+      background-color: #ff6f61;
       height: 3.3em;
       display: flex;
       align-items: center;
