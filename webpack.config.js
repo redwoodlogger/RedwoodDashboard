@@ -23,6 +23,10 @@ module.exports = {
       {
         test: /\.worker\.js$/,
         use: [{ loader: "worker-loader" }]
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"]
       }
     ]
   },
