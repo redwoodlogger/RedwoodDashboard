@@ -36,7 +36,7 @@ const PanelButtons = () => (
     >
       Bug Reports
     </Button>
-    <Button active={false}>General Feedback</Button>
+    <Button defaultStyle={false}>General Feedback</Button>
   </div>
 );
 

@@ -5,19 +5,19 @@ import PropTypes from "prop-types";
 import { css, jsx } from "@emotion/core";
 
 const Button = props => {
-  const { children, active } = props;
+  const { children, defaultStyle, ...rest } = props;
   return (
     <button
       css={css`
-        background: ${active ? "#ff6f61" : "white"};
+        background: ${defaultStyle ? "#ff6f61" : "white"};
         padding: 0.4em 0.5em;
         border: none;
         border-radius: 0.6em;
-        color: ${active ? "white" : "#ff6f61"};
+        color: ${defaultStyle ? "white" : "#ff6f61"};
         cursor: pointer;
       `}
       type="button"
-      {...props}
+      {...rest}
     >
       {children}
     </button>
@@ -25,12 +25,12 @@ const Button = props => {
 };
 
 Button.defaultProps = {
-  active: true
+  defaultStyle: true
 };
 
 Button.propTypes = {
   children: PropTypes.string.isRequired,
-  active: PropTypes.bool
+  defaultStyle: PropTypes.bool
 };
 
 export default Button;

@@ -233,7 +233,6 @@ const SidePanel = () => (
               margin-top: 0.3em;
               margin-left: auto;
             `}
-            color="#FF6F61"
           >
             Add tag
           </Button>
