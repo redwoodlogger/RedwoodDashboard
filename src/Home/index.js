@@ -3,7 +3,7 @@ import React from "react";
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
 import Navbar from "../Navbar";
-import MainPanel from "./MainPanel";
+import LogsPanel from "./LogsPanel";
 import RightPanel from "./RightPanel";
 
 const Panels = () => (
@@ -14,7 +14,7 @@ const Panels = () => (
       overflow: hidden;
     `}
   >
-    <MainPanel />
+    <LogsPanel />
     <RightPanel />
   </div>
 );

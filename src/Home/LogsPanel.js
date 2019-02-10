@@ -103,7 +103,7 @@ class Logs extends Component {
   }
 }
 
-const MainPanel = () => (
+const LogsPanel = () => (
   <section
     css={css`
       flex: 1;
@@ -116,4 +116,4 @@ const MainPanel = () => (
   </section>
 );
 
-export default MainPanel;
+export default LogsPanel;
