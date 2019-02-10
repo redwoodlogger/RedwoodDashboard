@@ -6,18 +6,20 @@ import Navbar from "../Navbar";
 import LogsPanel from "./LogsPanel";
 import RightPanel from "./RightPanel";
 
-const Panels = () => (
-  <div
-    css={css`
-      flex: 1;
-      display: flex;
-      overflow: hidden;
-    `}
-  >
-    <LogsPanel />
-    <RightPanel />
-  </div>
-);
+const Panels = props => {
+  const { children } = props;
+  return (
+    <div
+      css={css`
+        flex: 1;
+        display: flex;
+        overflow: hidden;
+      `}
+    >
+      {children}
+    </div>
+  );
+};
 
 const Home = () => (
   <div
@@ -28,7 +30,10 @@ const Home = () => (
     `}
   >
     <Navbar />
-    <Panels />
+    <Panels>
+      <LogsPanel />
+      <RightPanel />
+    </Panels>
   </div>
 );
 
