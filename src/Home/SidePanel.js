@@ -125,7 +125,7 @@ GroupTitle.propTypes = {
 };
 
 const CommentBox = () => (
-  <div
+  <section
     css={css`
       background: white;
       height: 12em;
@@ -161,13 +161,13 @@ const CommentBox = () => (
         <Button>Submit</Button>
       </div>
     </div>
-  </div>
+  </section>
 );
 
 const Details = props => {
   const { children } = props;
   return (
-    <div
+    <section
       css={css`
         padding: 1em 4em 0 2em;
         overflow-y: scroll;
@@ -175,7 +175,7 @@ const Details = props => {
       `}
     >
       {children}
-    </div>
+    </section>
   );
 };
 
