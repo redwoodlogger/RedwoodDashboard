@@ -4,7 +4,7 @@ import React from "react";
 import { css, jsx } from "@emotion/core";
 import Navbar from "../Navbar";
 import MainPanel from "./MainPanel";
-import SidePanel from "./SidePanel";
+import RightPanel from "./RightPanel";
 
 const Panels = () => (
   <div
@@ -15,7 +15,7 @@ const Panels = () => (
     `}
   >
     <MainPanel />
-    <SidePanel />
+    <RightPanel />
   </div>
 );
 
@@ -28,9 +28,7 @@ const Home = () => (
     `}
   >
     <Navbar />
-    <Panels>
-      <MainPanel />
-    </Panels>
+    <Panels />
   </div>
 );
 

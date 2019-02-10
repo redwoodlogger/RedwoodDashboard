@@ -179,7 +179,7 @@ const Details = props => {
   );
 };
 
-const SidePanel = () => (
+const RightPanel = () => (
   <aside
     css={css`
       background: #f6f6f6;
@@ -251,4 +251,4 @@ const SidePanel = () => (
   </aside>
 );
 
-export default SidePanel;
+export default RightPanel;
