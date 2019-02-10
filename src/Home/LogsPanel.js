@@ -13,12 +13,13 @@ const SystemDropdown = () => (
     css={css`
       display: flex;
       align-items: center;
+      margin: 0 0 0.5em 0;
     `}
   >
     <p
       css={css`
         font-size: 1.3rem;
-        margin: 0 0.3em 0.5em 0;
+        margin-right: 0.3em;
       `}
     >
       System One
