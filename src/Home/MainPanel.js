@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React from "react";
+import React, { Component } from "react";
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -51,15 +51,13 @@ const PanelTop = () => (
   <section
     css={css`
       background: white;
-      flex: 1;
-      padding-top: 1em;
     `}
   >
     <div
       css={css`
-        padding: 0 2em 0 4em;
         display: flex;
         justify-content: space-between;
+        margin-bottom: 2em;
       `}
     >
       <PanelOptions />
@@ -68,6 +66,49 @@ const PanelTop = () => (
   </section>
 );
 
-const MainPanel = () => <PanelTop />;
+class Logs extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      columnDefs: [
+        { headerName: "Make", field: "make" },
+        { headerName: "Model", field: "model" },
+        { headerName: "Price", field: "price" }
+      ],
+      rowData: [
+        { make: "Toyota", model: "Celica", price: 35000 },
+        { make: "Ford", model: "Mondeo", price: 32000 },
+        { make: "Porsche", model: "Boxter", price: 72000 }
+      ]
+    };
+  }
+
+  render() {
+    const { rowData, columnDefs } = this.state;
+    return (
+      <div
+        className="ag-theme-balham"
+        style={{
+          height: "500px",
+          width: "600px"
+        }}
+      >
+        <AgGridReact columnDefs={columnDefs} rowData={rowData} />
+      </div>
+    );
+  }
+}
+
+const MainPanel = () => (
+  <section
+    css={css`
+      flex: 1;
+      padding: 1em 2em 0 4em;
+    `}
+  >
+    <PanelTop />
+    <Logs />
+  </section>
+);
 
 export default MainPanel;
