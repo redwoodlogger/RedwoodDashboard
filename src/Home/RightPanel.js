@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 import Button from "../shared/Button";
 import Hashtag from "../shared/Hashtag";
 import UserBubble from "../shared/UserBubble";
+import { Group, GroupTitle } from "./RightPanelGroup";
 
 const CommentUser = props => {
   const { children } = props;
@@ -91,37 +92,6 @@ Comment.propTypes = {
   user: PropTypes.string.isRequired,
   comment: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired
-};
-
-const Group = props => {
-  const { children } = props;
-  return (
-    <section
-      css={css`
-        margin-bottom: 2em;
-      `}
-    >
-      {children}
-    </section>
-  );
-};
-
-const GroupTitle = props => {
-  const { children } = props;
-  return (
-    <p
-      css={css`
-        color: #949494;
-        margin: 0.5em 0;
-      `}
-    >
-      {children}
-    </p>
-  );
-};
-
-GroupTitle.propTypes = {
-  children: PropTypes.string.isRequired
 };
 
 const CommentBox = () => (
