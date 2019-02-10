@@ -108,6 +108,7 @@ const MainPanel = () => (
     css={css`
       flex: 1;
       padding: 1em 2em 0 4em;
+      overflow: auto;
     `}
   >
     <PanelTop />
