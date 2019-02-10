@@ -10,7 +10,8 @@ module.exports = {
     // We need to set the globalObject to "this" in order to let webpack dev server's hot reload
     // work with worker-loader. Somehow, it throws a "window is not defined error" that is solved
     // by setting globalObject to "this". https://github.com/webpack/webpack/issues/6642
-    globalObject: "this"
+    globalObject: "this",
+    publicPath: "/"
   },
   module: {
     rules: [
@@ -30,5 +31,8 @@ module.exports = {
       }
     ]
   },
-  plugins: [htmlPlugin]
+  plugins: [htmlPlugin],
+  devServer: {
+    historyApiFallback: true
+  }
 };

@@ -5,7 +5,9 @@ import { Global, css, jsx } from "@emotion/core";
 import ReactDOM from "react-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./Home/index";
+import Playback from "./Playback/index";
 
 library.add(faAngleDown);
 
@@ -165,8 +167,16 @@ const App = () => (
         /* End of border-box reset */
       `}
     />
-    <Home />
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route path="/playback" component={Playback} />
+    </Switch>
   </React.Fragment>
 );
 
-ReactDOM.render(<App />, document.getElementById("index"));
+ReactDOM.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.getElementById("index")
+);
