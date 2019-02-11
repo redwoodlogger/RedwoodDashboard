@@ -8,15 +8,35 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 class SystemDropdown extends Component {
   constructor(props) {
     super(props);
+    this.setWrapperRef = this.setWrapperRef.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
     this.state = {
       open: false
     };
+  }
+
+  componentDidMount() {
+    document.addEventListener("mousedown", this.handleClickOutside);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("mousedown", this.handleClickOutside);
+  }
+
+  setWrapperRef(node) {
+    this.wrapperRef = node;
   }
 
   onClick = () => {
     const { open } = this.state;
     this.setState({ open: !open });
   };
+
+  handleClickOutside(event) {
+    if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+      this.setState({ open: false });
+    }
+  }
 
   render() {
     const { systems, currentSystem } = this.props;
@@ -29,6 +49,7 @@ class SystemDropdown extends Component {
           align-items: center;
           margin: 0 0 0.5em 0;
         `}
+        ref={this.setWrapperRef}
       >
         {/* eslint-disable-next-line */}
         <p
@@ -60,7 +81,30 @@ class SystemDropdown extends Component {
             border-radius: 0.5em;
             z-index: 1;
           `}
-        />
+        >
+          <ul
+            css={css`
+              list-style-type: none;
+              margin: 0;
+              padding: 0;
+            `}
+          >
+            {systems.map((system, i) => (
+              <li
+                key={i}
+                css={css`
+                  margin: 0.5em;
+                  text-decoration: none;
+                  color: #ff6f61;
+                  cursor: pointer;
+                `}
+                type="button"
+              >
+                {system}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     );
   }
