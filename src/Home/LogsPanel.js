@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
+import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AgGridReact } from "ag-grid-react";
 import Button from "../shared/Button";
@@ -67,7 +68,38 @@ const PanelTop = () => (
   </section>
 );
 
-class Logs extends Component {
+const Logs = props => {
+  const { columnDefs, rowData } = props;
+  return (
+    <div
+      className="ag-theme-balham"
+      style={{
+        height: "500px",
+        width: "600px"
+      }}
+    >
+      <AgGridReact columnDefs={columnDefs} rowData={rowData} />
+    </div>
+  );
+};
+
+Logs.propTypes = {
+  columnDefs: PropTypes.arrayOf(
+    PropTypes.shape({
+      headerName: PropTypes.string.isRequired,
+      field: PropTypes.string.isRequired
+    })
+  ).isRequired,
+  rowData: PropTypes.arrayOf(
+    PropTypes.shape({
+      actions: PropTypes.string.isRequired,
+      status: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired
+    })
+  ).isRequired
+};
+
+class LogsPanel extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -89,32 +121,20 @@ class Logs extends Component {
   }
 
   render() {
-    const { rowData, columnDefs } = this.state;
+    const { columnDefs, rowData } = this.state;
     return (
-      <div
-        className="ag-theme-balham"
-        style={{
-          height: "500px",
-          width: "600px"
-        }}
+      <section
+        css={css`
+          flex: 1;
+          padding: 1em 2em 0 4em;
+          overflow: auto;
+        `}
       >
-        <AgGridReact columnDefs={columnDefs} rowData={rowData} />
-      </div>
+        <PanelTop />
+        <Logs columnDefs={columnDefs} rowData={rowData} />
+      </section>
     );
   }
 }
-
-const LogsPanel = () => (
-  <section
-    css={css`
-      flex: 1;
-      padding: 1em 2em 0 4em;
-      overflow: auto;
-    `}
-  >
-    <PanelTop />
-    <Logs />
-  </section>
-);
 
 export default LogsPanel;
