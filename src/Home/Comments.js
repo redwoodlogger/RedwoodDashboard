@@ -21,6 +21,13 @@ const CommentUser = props => {
   );
 };
 
+CommentUser.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired
+};
+
 const CommentUsername = props => {
   const { children } = props;
   return <p>{children}</p>;

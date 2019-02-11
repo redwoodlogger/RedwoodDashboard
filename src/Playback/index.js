@@ -2,6 +2,7 @@
 import React from "react";
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
+import PropTypes from "prop-types";
 import Navbar from "../Navbar";
 import Button from "../shared/Button";
 import Details from "./Details";
@@ -20,6 +21,13 @@ const PlaybackPanel = props => {
       {children}
     </div>
   );
+};
+
+PlaybackPanel.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired
 };
 
 const LeftPanel = () => (

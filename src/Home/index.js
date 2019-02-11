@@ -2,6 +2,7 @@
 import React from "react";
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
+import PropTypes from "prop-types";
 import Navbar from "../Navbar";
 import LogsPanel from "./LogsPanel";
 import RightPanel from "./RightPanel";
@@ -19,6 +20,13 @@ const Panels = props => {
       {children}
     </div>
   );
+};
+
+Panels.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired
 };
 
 const Home = () => (

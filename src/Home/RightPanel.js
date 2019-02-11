@@ -2,6 +2,7 @@
 import React from "react";
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
+import PropTypes from "prop-types";
 import Button from "../shared/Button";
 import Hashtags from "./Hashtags";
 import Comments from "./Comments";
@@ -59,6 +60,13 @@ const Details = props => {
       {children}
     </section>
   );
+};
+
+Details.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired
 };
 
 const RightPanel = () => (

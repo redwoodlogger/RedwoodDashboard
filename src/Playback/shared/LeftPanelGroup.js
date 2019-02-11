@@ -19,6 +19,13 @@ export const Group = props => {
   );
 };
 
+Group.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired
+};
+
 export const GroupTitle = props => {
   const { children } = props;
   return <p>{children}</p>;
