@@ -16,7 +16,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         // Tried to use eslint-loader, but somehow it throws errors on the redwood.worker.js script
         use: [{ loader: "babel-loader" }]
@@ -34,5 +34,8 @@ module.exports = {
   plugins: [htmlPlugin],
   devServer: {
     historyApiFallback: true
+  },
+  resolve: {
+    extensions: [".js", ".jsx"]
   }
 };
