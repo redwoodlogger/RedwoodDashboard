@@ -9,25 +9,33 @@ import Button from "../shared/Button";
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-balham.css";
 
-const SystemDropdown = () => (
-  <div
-    css={css`
-      display: flex;
-      align-items: center;
-      margin: 0 0 0.5em 0;
-    `}
-  >
-    <p
+const SystemDropdown = props => {
+  const { systems, currentSystem } = props;
+  return (
+    <div
       css={css`
-        font-size: 1.3rem;
-        margin-right: 0.3em;
+        display: flex;
+        align-items: center;
+        margin: 0 0 0.5em 0;
       `}
     >
-      System One
-    </p>
-    <FontAwesomeIcon icon="angle-down" />
-  </div>
-);
+      <p
+        css={css`
+          font-size: 1.3rem;
+          margin-right: 0.3em;
+        `}
+      >
+        {currentSystem}
+      </p>
+      <FontAwesomeIcon icon="angle-down" />
+    </div>
+  );
+};
+
+SystemDropdown.propTypes = {
+  systems: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  currentSystem: PropTypes.string.isRequired
+};
 
 const PanelButtons = () => (
   <div>
@@ -42,31 +50,40 @@ const PanelButtons = () => (
   </div>
 );
 
-const PanelOptions = () => (
-  <div>
-    <SystemDropdown />
-    <PanelButtons />
-  </div>
-);
+const PanelOptions = props => {
+  const { children } = props;
+  return <div>{children}</div>;
+};
 
-const PanelTop = () => (
-  <section
-    css={css`
-      background: white;
-    `}
-  >
-    <div
+PanelOptions.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired
+};
+
+const PanelTop = props => {
+  const { children } = props;
+  return (
+    <section
       css={css`
+        background: white;
         display: flex;
         justify-content: space-between;
         margin-bottom: 2em;
       `}
     >
-      <PanelOptions />
-      <p>10 Unresolved Bug Reports | 5 Unresolved General Feedback</p>
-    </div>
-  </section>
-);
+      {children}
+    </section>
+  );
+};
+
+PanelTop.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired
+};
 
 const Logs = props => {
   const { columnDefs, rowData } = props;
@@ -116,12 +133,14 @@ class LogsPanel extends Component {
         { actions: "Toyota", status: "Celica", id: 35000 },
         { actions: "Ford", status: "Mondeo", id: 32000 },
         { actions: "Porsche", status: "Boxter", id: 72000 }
-      ]
+      ],
+      systems: ["System 1", "System 2", "System 3"],
+      currentSystem: "System 1"
     };
   }
 
   render() {
-    const { columnDefs, rowData } = this.state;
+    const { systems, currentSystem, columnDefs, rowData } = this.state;
     return (
       <section
         css={css`
@@ -130,7 +149,13 @@ class LogsPanel extends Component {
           overflow: auto;
         `}
       >
-        <PanelTop />
+        <PanelTop>
+          <PanelOptions>
+            <SystemDropdown systems={systems} currentSystem={currentSystem} />
+            <PanelButtons />
+          </PanelOptions>
+          <p>10 Unresolved Bug Reports | 5 Unresolved General Feedback</p>
+        </PanelTop>
         <Logs columnDefs={columnDefs} rowData={rowData} />
       </section>
     );
