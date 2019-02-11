@@ -165,6 +165,10 @@ const App = () => (
           box-sizing: inherit;
         }
         /* End of border-box reset */
+        @font-face {
+          font-family: 'Staatliches';
+          src:  url('src/Fonts/Staatliches-Regular.ttf') format('truetype');
+        }
       `}
     />
     <Switch>

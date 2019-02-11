@@ -45,6 +45,7 @@ const Logo = props => {
       css={css`
         color: white;
         margin: 0 0 0 4em;
+        font-family: 'Staatliches';
       `}
     >
       {children}
