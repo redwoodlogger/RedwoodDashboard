@@ -26,3 +26,7 @@ package-lock.json should be committed.
 The node_modules folder and its contents should not be committed.
 
 All line endings will use the LF (Unix style) rather than CRLF (Windows style). Please set up the git extension in your text editor to use LF rather than CRLF. Alternatively, you could set up your text editor to save files with LF rather than CRLF. Best is to do both.
+
+git config core.autocrlf false 
+git rm --cached -r . 
+git reset --hard
