@@ -30,6 +30,7 @@ class SystemDropdown extends Component {
           margin: 0 0 0.5em 0;
         `}
       >
+        {/* eslint-disable-next-line */}
         <p
           onClick={this.onClick}
           css={css`
