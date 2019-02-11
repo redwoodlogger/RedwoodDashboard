@@ -6,8 +6,8 @@ import ReactDOM from "react-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Home from "./Home/index";
-import Playback from "./Playback/index";
+import Home from "./Home/Home";
+import Playback from "./Playback/Playback";
 
 library.add(faAngleDown);
 
