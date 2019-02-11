@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
 
+const ButtonStyle = css``;
+
 const Button = props => {
   const { children, defaultStyle, ...rest } = props;
   return (

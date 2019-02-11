@@ -5,9 +5,38 @@ import { css, jsx } from "@emotion/core";
 import PropTypes from "prop-types";
 import { AgGridReact } from "ag-grid-react";
 import SystemDropdown from "./SystemDropdown";
-import Button from "../shared/Button";
+import ActionCellRenderer from "./ActionCellRenderer";
+import Button from "../../shared/Button";
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-balham.css";
+
+const COLUMN_DEFS = [
+  {
+    headerName: "",
+    width: 30,
+    checkboxSelection: true
+  },
+  {
+    headerName: "",
+    field: "id",
+    width: 30,
+    cellRendererFramework: ActionCellRenderer
+  },
+  {
+    headerName: "ID No.",
+    field: "id",
+    filter: "agTextColumnFilter",
+    width: 120
+  },
+  {
+    headerName: "Date Submitted",
+    field: "dateSubmitted",
+    filter: "agTextColumnFilter"
+  },
+  { headerName: "Submitter", field: "submitter", filter: "agTextColumnFilter" },
+  { headerName: "Tags", field: "tags", filter: "agTextColumnFilter" },
+  { headerName: "Dev Remarks", field: "devRemarks" }
+];
 
 const PanelButtons = () => (
   <div>
@@ -64,10 +93,15 @@ const Logs = props => {
       className="ag-theme-balham"
       style={{
         height: "500px",
-        width: "600px"
+        width: "100%"
       }}
     >
-      <AgGridReact columnDefs={columnDefs} rowData={rowData} />
+      <AgGridReact
+        columnDefs={columnDefs}
+        rowData={rowData}
+        floatingFilter
+        rowSelection="multiple"
+      />
     </div>
   );
 };
@@ -92,15 +126,6 @@ class LogsPanel extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      columnDefs: [
-        { headerName: "Actions", field: "actions" },
-        { headerName: "Status", field: "status" },
-        { headerName: "ID", field: "id" },
-        { headerName: "Date Submitted", field: "date submitted" },
-        { headerName: "Submitter", field: "submitter" },
-        { headerName: "Tags", field: "tags" },
-        { headerName: "Dev Remarks", field: "dev remarks" }
-      ],
       rowData: [
         { actions: "Toyota", status: "Celica", id: 35000 },
         { actions: "Ford", status: "Mondeo", id: 32000 },
@@ -112,7 +137,7 @@ class LogsPanel extends Component {
   }
 
   render() {
-    const { systems, currentSystem, columnDefs, rowData } = this.state;
+    const { systems, currentSystem, rowData } = this.state;
     return (
       <section
         css={css`
@@ -128,7 +153,7 @@ class LogsPanel extends Component {
           </PanelOptions>
           <p>10 Unresolved Bug Reports | 5 Unresolved General Feedback</p>
         </PanelTop>
-        <Logs columnDefs={columnDefs} rowData={rowData} />
+        <Logs columnDefs={COLUMN_DEFS} rowData={rowData} />
       </section>
     );
   }

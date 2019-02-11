@@ -4,7 +4,7 @@ import React from "react";
 import { css, jsx } from "@emotion/core";
 import PropTypes from "prop-types";
 import Navbar from "../Navbar";
-import LogsPanel from "./LogsPanel";
+import LogsPanel from "./LogsPanel/LogsPanel";
 import RightPanel from "./RightPanel";
 
 const Panels = props => {
