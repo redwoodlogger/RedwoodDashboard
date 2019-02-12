@@ -97,7 +97,7 @@ class SystemDropdown extends Component {
                   text-decoration: none;
                   color: #808080;
                   cursor: pointer;
-                  font-family: "Lato";
+                  font-family: "Source Sans Pro";
                   padding: 0.5em;
 
                   :hover {

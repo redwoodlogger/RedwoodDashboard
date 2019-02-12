@@ -165,10 +165,6 @@ const App = () => (
           box-sizing: inherit;
         }
         /* End of border-box reset */
-        @font-face {
-          font-family: "Staatliches";
-          src: url("src/Fonts/Staatliches-Regular.ttf") format("truetype");
-        }
 
         /*----- Sarabun -----*/
 
@@ -184,21 +180,6 @@ const App = () => (
           font-weight: bold;
           font-style: normal;
           src: url("src/Fonts/Sarabun-SemiBold.ttf") format("truetype");
-        }
-
-        /*----- Lato -----*/
-
-        @font-face {
-          font-family: "Lato";
-          font-style: normal;
-          font-weight: normal;
-          src: url("src/Fonts/Lato-Regular.ttf") format("truetype");
-        }
-
-        @font-face {
-          font-family: "Lato";
-          font-weight: bold;
-          src: url("src/Fonts/Lato-Bold.ttf") format("truetype");
         }
 
         /*----- Roboto -----*/

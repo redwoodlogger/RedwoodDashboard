@@ -106,8 +106,8 @@ class LogsPanel extends Component {
         { actions: "Ford", status: "Mondeo", id: 32000 },
         { actions: "Porsche", status: "Boxter", id: 72000 }
       ],
-      systems: ["System 1", "System 2", "System 3"],
-      currentSystem: "System 1"
+      systems: ["System Apple", "System Orange", "System Watermelon"],
+      currentSystem: "System Apple"
     };
   }
 
@@ -119,7 +119,7 @@ class LogsPanel extends Component {
           flex: 1;
           padding: 1em 2em 0 4em;
           overflow: auto;
-          font-family: "Lato";
+          font-family: "Source Sans Pro";
         `}
       >
         <PanelTop>
