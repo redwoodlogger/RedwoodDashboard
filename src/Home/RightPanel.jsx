@@ -7,7 +7,11 @@ import Button from "../shared/Button";
 import Hashtags from "./Hashtags";
 import Comments from "./Comments";
 
-const CommentBox = ({ event }) => (
+const CommentBox = ({
+  eventStateCommentInput,
+  eventHandleChange,
+  eventHandleSubmit
+}) => (
   <section
     css={css`
       background: white;
@@ -24,7 +28,9 @@ const CommentBox = ({ event }) => (
         flex-direction: column;
       `}
     >
-      <textarea value={event.state.commentInput} onChange={event.handleChange}
+      <textarea
+        value={eventStateCommentInput}
+        onChange={eventHandleChange}
         css={css`
           border: 1px solid #e5e5e5;
           width: 24em;
@@ -41,11 +47,17 @@ const CommentBox = ({ event }) => (
           justify-content: end;
         `}
       >
-        <Button onClick={event.handleSubmit}>Submit</Button>
+        <Button onClick={eventHandleSubmit}>Submit</Button>
       </div>
     </div>
   </section>
 );
+
+CommentBox.propTypes = {
+  eventStateCommentInput: PropTypes.string.isRequired,
+  eventHandleChange: PropTypes.func.isRequired,
+  eventHandleSubmit: PropTypes.func.isRequired
+};
 
 const Details = props => {
   const { children } = props;
@@ -73,55 +85,63 @@ class RightPanel extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      comments: [""],
+      comments: [],
       commentInput: ""
-    }
+    };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    const { name, value } = event.target;
-    this.setState(prevState => ({
+    const { value } = event.target;
+    this.setState({
       commentInput: value
-    }));
+    });
   }
 
   handleSubmit(event) {
-    this.setState(prevState => ({
-      comments: [...prevState.comments, prevState.commentInput],
-      commentInput: ""
-    }));
     event.preventDefault();
+    const { commentInput } = this.state;
+    if (commentInput) {
+      this.setState(prevState => ({
+        comments: [...prevState.comments, prevState.commentInput],
+        commentInput: ""
+      }));
+    }
   }
 
   render() {
+    const { commentInput, comments } = this.state;
     return (
       <aside
         css={css`
-      background: #f6f6f6;
-      width: 25em;
-      display: flex;
-      flex-direction: column;
-      border-left: 1px solid #e5e5e5;
-      font-family: "Lato";
-    `}
+          background: #f6f6f6;
+          width: 25em;
+          display: flex;
+          flex-direction: column;
+          border-left: 1px solid #e5e5e5;
+          font-family: "Lato";
+        `}
       >
         <Details>
           <p
             css={css`
-          margin-bottom: 1em;
-        `}
+              margin-bottom: 1em;
+            `}
           >
             Bug Report #123459
-      </p>
+          </p>
           <Hashtags />
-          <Comments commentList={this.state.comments.slice(1, this.state.comments.length)} />
+          <Comments commentList={comments} />
         </Details>
-        <CommentBox event={this} />
+        <CommentBox
+          eventStateCommentInput={commentInput}
+          eventHandleChange={this.handleChange}
+          eventHandleSubmit={this.handleSubmit}
+        />
       </aside>
-    )
+    );
   }
-};
+}
 
 export default RightPanel;

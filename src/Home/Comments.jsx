@@ -108,35 +108,37 @@ Comment.propTypes = {
   date: PropTypes.string.isRequired
 };
 
-const Comments = ({ commentList }) => {
-  return (
-    < Group >
-      <GroupTitle>Dev Remarks</GroupTitle>
+const Comments = ({ commentList }) => (
+  <Group>
+    <GroupTitle>Dev Remarks</GroupTitle>
+    <Comment
+      user="Mervyn"
+      comment="Mist enveloped the ship three hours out from port."
+      date="17 February 2019"
+    />
+    <Comment
+      user="Mervyn"
+      comment="The sky was cloudless and of a deep dark blue."
+      date="17 February 2019"
+    />
+    <Comment
+      user="Mervyn"
+      comment="A red flare silhouetted the jagged edge of a wing. A shining crescent far beneath the flying vessel."
+      date="17 February 2019"
+    />
+    {commentList.map((comments, index) => (
       <Comment
+        key={index.toString()}
         user="Mervyn"
-        comment="Mist enveloped the ship three hours out from port."
+        comment={comments}
         date="17 February 2019"
       />
-      <Comment
-        user="Mervyn"
-        comment="The sky was cloudless and of a deep dark blue."
-        date="17 February 2019"
-      />
-      <Comment
-        user="Mervyn"
-        comment="A red flare silhouetted the jagged edge of a wing. A shining crescent far beneath the flying vessel."
-        date="17 February 2019"
-      />
-      {commentList.map((comments, index) => (
-        <Comment
-          key={index}
-          user="Mervyn"
-          comment={comments}
-          date="17 February 2019"
-        />
-      ))}
-    </Group >
-  );
+    ))}
+  </Group>
+);
+
+Comments.propTypes = {
+  commentList: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
 };
 
 export default Comments;
