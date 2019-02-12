@@ -39,7 +39,15 @@ CommentUsername.propTypes = {
 
 const CommentContent = props => {
   const { children } = props;
-  return <p>{children}</p>;
+  return (
+    <p
+      css={css`
+        font-family: "Sarabun";
+      `}
+    >
+      {children}
+    </p>
+  );
 };
 
 CommentContent.propTypes = {
@@ -51,9 +59,10 @@ const CommentDate = props => {
   return (
     <p
       css={css`
-        font-size: 0.8em;
-        color: #888888;
+        font-size: 0.7em;
+        color: #888;
         margin-top: 0.5em;
+        text-align: right;
       `}
     >
       {children}
@@ -102,9 +111,21 @@ Comment.propTypes = {
 const Comments = () => (
   <Group>
     <GroupTitle>Dev Remarks</GroupTitle>
-    <Comment user="Mervyn" comment="Hello there" date="17 February 2019" />
-    <Comment user="Mervyn" comment="Hello there" date="17 February 2019" />
-    <Comment user="Mervyn" comment="Hello there" date="17 February 2019" />
+    <Comment
+      user="Mervyn"
+      comment="Mist enveloped the ship three hours out from port."
+      date="17 February 2019"
+    />
+    <Comment
+      user="Mervyn"
+      comment="The sky was cloudless and of a deep dark blue."
+      date="17 February 2019"
+    />
+    <Comment
+      user="Mervyn"
+      comment="A red flare silhouetted the jagged edge of a wing. A shining crescent far beneath the flying vessel."
+      date="17 February 2019"
+    />
     <Comment user="Mervyn" comment="Hello there" date="17 February 2019" />
     <Comment user="Mervyn" comment="Hello there" date="17 February 2019" />
   </Group>

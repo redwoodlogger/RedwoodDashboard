@@ -97,6 +97,7 @@ class SystemDropdown extends Component {
                   text-decoration: none;
                   color: #ff6f61;
                   cursor: pointer;
+                  font-family: "Lato";
                 `}
                 type="button"
               >
