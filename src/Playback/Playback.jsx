@@ -40,7 +40,16 @@ const LeftPanel = () => (
     `}
   >
     <div>
-      <Button>Back</Button>
+      <Button
+        css={css`
+          padding: 5px;
+          margin: 5px 0 5px 20px;
+          width: 75px;
+          border-radius: 8px;
+        `}
+      >
+        Back
+      </Button>
     </div>
     <Details />
     <UserActions />
