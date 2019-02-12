@@ -28,6 +28,18 @@ module.exports = {
       {
         test: /\.css$/,
         use: ["style-loader", "css-loader"]
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+              outputPath: "fonts/"
+            }
+          }
+        ]
       }
     ]
   },
@@ -37,5 +49,6 @@ module.exports = {
   },
   resolve: {
     extensions: [".js", ".jsx"]
-  }
+  },
+  devtool: "eval-source-map"
 };

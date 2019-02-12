@@ -170,6 +170,7 @@ class LogsPanel extends Component {
           flex: 1;
           padding: 1em 2em 0 4em;
           overflow: auto;
+          font-family: "Lato";
         `}
       >
         <PanelTop>
