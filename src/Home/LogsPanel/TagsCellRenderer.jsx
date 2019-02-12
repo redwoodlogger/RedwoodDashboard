@@ -1,13 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
 
 const TagsCellRenderer = props => {
   const { value } = props;
-  let tags = value.split(";");
+  const tags = value.split(";");
   return (
     <div
       css={css`

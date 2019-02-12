@@ -4,8 +4,6 @@ import PropTypes from "prop-types";
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
 
-const ButtonStyle = css``;
-
 const Button = props => {
   const { children, defaultStyle, ...rest } = props;
   return (
@@ -17,14 +15,6 @@ const Button = props => {
         border-radius: 0.6em;
         color: ${defaultStyle ? "white" : "#ff6f61"};
         cursor: pointer;
-
-        :hover {
-
-        }
-
-        :active {
-          
-        }
       `}
       type="button"
       {...rest}
