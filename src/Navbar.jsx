@@ -20,8 +20,7 @@ const UserAccount = props => {
         css={css`
           margin-right: 0.5em;
           background: #4d80cc;
-          font-family: "Lato";
-          font-weight: bold;
+          font-family: "Source Sans Pro";
         `}
       >
         {username[0]}
@@ -29,7 +28,7 @@ const UserAccount = props => {
       <p
         css={css`
           color: white;
-          font-family: "Lato";
+          font-family: "Source Sans Pro";
         `}
       >
         {username}
@@ -49,7 +48,7 @@ const Logo = props => {
       css={css`
         color: white;
         margin: 0 0 0 4em;
-        font-family: "Sarabun";
+        font-family: "Roboto";
         font-weight: bold;
         letter-spacing: 0.5em;
       `}

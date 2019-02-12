@@ -74,30 +74,42 @@ class SystemDropdown extends Component {
             display: ${open ? "block" : "none"};
             position: absolute;
             top: 1.5em;
-            height: 10em;
-            width: 10em;
+            height: auto;
+            width: 100%;
+            min-width: 10em;
             background: white;
             border: 1px solid #e5e5e5;
-            border-radius: 0.5em;
             z-index: 1;
+            border-radius: 0.5em;
+            overflow: hidden;
+            box-shadow: 0px 8px 15px 5px rgba(200, 200, 200, 0.5);
           `}
         >
           <ul
             css={css`
               list-style-type: none;
-              margin: 0;
-              padding: 0;
             `}
           >
             {systems.map((system, i) => (
               <li
                 key={i}
                 css={css`
-                  margin: 0.5em;
                   text-decoration: none;
-                  color: #ff6f61;
+                  color: #808080;
                   cursor: pointer;
-                  font-family: "Lato";
+                  font-family: "Source Sans Pro";
+                  padding: 0.5em;
+
+                  :hover {
+                    color: #fff;
+                    background-color: #ff6f61;
+                  }
+
+                  :active {
+                    color: #ff6f61;
+                    background-color: white;
+                    font-weight: bold;
+                  }
                 `}
                 type="button"
               >
