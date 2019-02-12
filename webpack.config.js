@@ -31,13 +31,15 @@ module.exports = {
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: [{
-          loader: 'file-loader',
-          options: {
-            name: '[name].[ext]',
-            outputPath: 'fonts/'
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+              outputPath: "fonts/"
+            }
           }
-        }]
+        ]
       }
     ]
   },
@@ -47,5 +49,6 @@ module.exports = {
   },
   resolve: {
     extensions: [".js", ".jsx"]
-  }
+  },
+  devtool: "eval-source-map"
 };
