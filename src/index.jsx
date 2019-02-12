@@ -200,6 +200,29 @@ const App = () => (
           font-weight: bold;
           src: url("src/Fonts/Lato-Bold.ttf") format("truetype");
         }
+
+        /*----- Roboto -----*/
+        @font-face {
+          font-family: "Roboto";
+          font-style: normal;
+          font-weight: normal;
+          src: url("src/Fonts/Roboto-Regular.ttf") format("truetype");
+        }
+
+        @font-face {
+          font-family: "Roboto";
+          font-weight: bold;
+          font-style: normal;
+          src: url("src/Fonts/Roboto-Black.ttf") format("truetype");
+        }
+
+        /*----- Source Sans Pro -----*/
+        @font-face {
+          font-family: "Source Sans Pro";
+          font-style: normal;
+          font-weight: normal;
+          src: url("src/Fonts/SourceSansPro-Regular.ttf") format("truetype");
+        }
       `}
     />
     <Switch>
