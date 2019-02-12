@@ -10,24 +10,42 @@ import { IoIosArrowForward } from "react-icons/io";
 const DevRemarksCellRenderer = props => {
   const { value } = props;
   return (
-    <Link
-      to={`/comments/${value.id}`}
+    <div
       css={css`
-        color: teal;
-        font-size: 1.5em;
-        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        margin: auto 0;
       `}
     >
-      <div
+      <Link
+        to={`/comments/${value.id}`}
         css={css`
-          border: 0.625em solid teal;
-          font-size: 1em;
+          color: teal;
+          font-size: 1.5em;
+          cursor: pointer;
+          text-decoration: none;
+          display: flex;
         `}
       >
-        {`3${/* value.devRemarkCount */ " "}`}
-      </div>
-      <IoIosArrowForward />
-    </Link>
+        <div
+          css={css`
+            border: 0.0625em solid teal;
+            font-size: 0.65em;
+            width: 1.5em;
+            height: 1.5em;
+            border-radius: 0.75em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          `}
+        >
+          {`3${/* value.devRemarkCount */ " "}`}
+        </div>
+        <IoIosArrowForward />
+      </Link>
+    </div>
   );
 };
 

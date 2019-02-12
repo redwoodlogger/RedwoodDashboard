@@ -9,6 +9,7 @@ import ActionCellRenderer from "./ActionCellRenderer";
 import Button from "../../shared/Button";
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-balham.css";
+import DevRemarksCellRenderer from "./DevRemarksCellRenderer";
 
 const COLUMN_DEFS = [
   {
@@ -35,13 +36,16 @@ const COLUMN_DEFS = [
   },
   { headerName: "Submitter", field: "submitter", filter: "agTextColumnFilter" },
   { headerName: "Tags", field: "tags", filter: "agTextColumnFilter" },
-  { headerName: "", field: "devRemarks" }
   {
-    headerName: "Dev Remarks", colId: 'devRemarks', 
-    valueGetter: params => {
-      return { devRemarkCount: params.data.devRemarkCount, id: params.data.id };
-    }
-  },
+    headerName: "Dev Remarks",
+    colId: "devRemarks",
+    width: 120,
+    valueGetter: params => ({
+      devRemarkCount: params.data.devRemarkCount,
+      id: params.data.id
+    }),
+    cellRendererFramework: DevRemarksCellRenderer
+  }
 ];
 
 const PanelButtons = () => (
