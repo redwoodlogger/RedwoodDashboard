@@ -16,6 +16,7 @@ const Hashtag = props => {
         border-radius: 0.3em;
         color: white;
         cursor: pointer;
+        font-family: "Sarabun";
       `}
       type="button"
     >

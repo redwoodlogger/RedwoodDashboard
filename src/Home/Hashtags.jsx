@@ -13,6 +13,8 @@ const Hashtags = () => (
       css={css`
         display: flex;
         flex-wrap: wrap;
+        font-family: "Sarabun";
+        font-weight: bold;
       `}
     >
       <Hashtag>#hashtag</Hashtag>
@@ -29,6 +31,8 @@ const Hashtags = () => (
         width: 100%;
         height: 2.2em;
         margin-top: 0.5em;
+        margin-left: 0.5em;
+        font-family: "Lato";
       `}
       placeholder="Add a tag"
     />
