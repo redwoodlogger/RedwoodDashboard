@@ -165,10 +165,6 @@ const App = () => (
           box-sizing: inherit;
         }
         /* End of border-box reset */
-        @font-face {
-          font-family: "Staatliches";
-          src: url("src/Fonts/Staatliches-Regular.ttf") format("truetype");
-        }
 
         /*----- Sarabun -----*/
 
@@ -186,19 +182,27 @@ const App = () => (
           src: url("src/Fonts/Sarabun-SemiBold.ttf") format("truetype");
         }
 
-        /*----- Lato -----*/
-
+        /*----- Roboto -----*/
         @font-face {
-          font-family: "Lato";
+          font-family: "Roboto";
           font-style: normal;
           font-weight: normal;
-          src: url("src/Fonts/Lato-Regular.ttf") format("truetype");
+          src: url("src/Fonts/Roboto-Regular.ttf") format("truetype");
         }
 
         @font-face {
-          font-family: "Lato";
+          font-family: "Roboto";
           font-weight: bold;
-          src: url("src/Fonts/Lato-Bold.ttf") format("truetype");
+          font-style: normal;
+          src: url("src/Fonts/Roboto-Black.ttf") format("truetype");
+        }
+
+        /*----- Source Sans Pro -----*/
+        @font-face {
+          font-family: "Source Sans Pro";
+          font-style: normal;
+          font-weight: normal;
+          src: url("src/Fonts/SourceSansPro-Regular.ttf") format("truetype");
         }
       `}
     />

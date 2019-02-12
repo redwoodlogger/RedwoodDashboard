@@ -5,9 +5,58 @@ import { css, jsx } from "@emotion/core";
 import PropTypes from "prop-types";
 import { AgGridReact } from "ag-grid-react";
 import SystemDropdown from "./SystemDropdown";
-import Button from "../shared/Button";
+import Button from "../../shared/Button";
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-balham.css";
+import ActionCellRenderer from "./ActionCellRenderer";
+import DevRemarksCellRenderer from "./DevRemarksCellRenderer";
+import TagsCellRenderer from "./TagsCellRenderer";
+
+import { LogsData } from "./LogsData";
+
+const COLUMN_DEFS = [
+  {
+    headerName: "",
+    width: 30,
+    checkboxSelection: true
+  },
+  {
+    headerName: "",
+    field: "id",
+    width: 30,
+    cellRendererFramework: ActionCellRenderer
+  },
+  {
+    headerName: "ID No.",
+    field: "id",
+    filter: "agTextColumnFilter",
+    width: 120
+  },
+  {
+    headerName: "Date Submitted",
+    field: "date",
+    filter: "agTextColumnFilter"
+  },
+  { headerName: "Submitter", field: "submitter", filter: "agTextColumnFilter" },
+  {
+    headerName: "Tags",
+    autoHeight: true,
+    field: "tags",
+    filter: "agTextColumnFilter",
+    width: 300,
+    cellRendererFramework: TagsCellRenderer
+  },
+  {
+    headerName: "Dev Remarks",
+    colId: "devRemarks",
+    width: 120,
+    valueGetter: params => ({
+      devRemarkCount: params.data.devRemarkCount,
+      id: params.data.id
+    }),
+    cellRendererFramework: DevRemarksCellRenderer
+  }
+];
 
 const PanelButtons = () => (
   <div>
@@ -58,16 +107,22 @@ PanelTop.propTypes = {
 };
 
 const Logs = props => {
-  const { columnDefs, rowData } = props;
+  const { columnDefs, rowData, onGridReady } = props;
   return (
     <div
       className="ag-theme-balham"
       style={{
         height: "500px",
-        width: "600px"
+        width: "100%"
       }}
     >
-      <AgGridReact columnDefs={columnDefs} rowData={rowData} />
+      <AgGridReact
+        columnDefs={columnDefs}
+        rowData={rowData}
+        onGridReady={onGridReady}
+        floatingFilter
+        rowSelection="multiple"
+      />
     </div>
   );
 };
@@ -75,51 +130,47 @@ const Logs = props => {
 Logs.propTypes = {
   columnDefs: PropTypes.arrayOf(
     PropTypes.shape({
-      headerName: PropTypes.string.isRequired,
-      field: PropTypes.string.isRequired
+      headerName: PropTypes.string,
+      field: PropTypes.string
     })
   ).isRequired,
   rowData: PropTypes.arrayOf(
     PropTypes.shape({
-      actions: PropTypes.string.isRequired,
-      status: PropTypes.string.isRequired,
-      id: PropTypes.number.isRequired
+      id: PropTypes.number.isRequired,
+      date: PropTypes.string.isRequired,
+      submitter: PropTypes.string.isRequired,
+      tags: PropTypes.string.isRequired,
+      devRemarkCount: PropTypes.number.isRequired
     })
-  ).isRequired
+  ).isRequired,
+  onGridReady: PropTypes.func.isRequired
 };
 
 class LogsPanel extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      columnDefs: [
-        { headerName: "Actions", field: "actions" },
-        { headerName: "Status", field: "status" },
-        { headerName: "ID", field: "id" },
-        { headerName: "Date Submitted", field: "date submitted" },
-        { headerName: "Submitter", field: "submitter" },
-        { headerName: "Tags", field: "tags" },
-        { headerName: "Dev Remarks", field: "dev remarks" }
-      ],
-      rowData: [
-        { actions: "Toyota", status: "Celica", id: 35000 },
-        { actions: "Ford", status: "Mondeo", id: 32000 },
-        { actions: "Porsche", status: "Boxter", id: 72000 }
-      ],
+      rowData: LogsData,
       systems: ["System 1", "System 2", "System 3"],
       currentSystem: "System 1"
     };
   }
 
+  onGridReady = params => {
+    setTimeout(() => {
+      params.api.resetRowHeights();
+    }, 500);
+  };
+
   render() {
-    const { systems, currentSystem, columnDefs, rowData } = this.state;
+    const { systems, currentSystem, rowData } = this.state;
     return (
       <section
         css={css`
           flex: 1;
           padding: 1em 2em 0 4em;
           overflow: auto;
-          font-family: "Lato";
+          font-family: "Source Sans Pro";
         `}
       >
         <PanelTop>
@@ -129,7 +180,11 @@ class LogsPanel extends Component {
           </PanelOptions>
           <p>10 Unresolved Bug Reports | 5 Unresolved General Feedback</p>
         </PanelTop>
-        <Logs columnDefs={columnDefs} rowData={rowData} />
+        <Logs
+          columnDefs={COLUMN_DEFS}
+          rowData={rowData}
+          onGridReady={this.onGridReady}
+        />
       </section>
     );
   }
