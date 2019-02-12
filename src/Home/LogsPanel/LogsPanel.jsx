@@ -35,7 +35,7 @@ const COLUMN_DEFS = [
   {
     headerName: "Date Submitted",
     field: "date",
-    filter: "agDateColumnFilter"
+    filter: "agTextColumnFilter"
   },
   { headerName: "Submitter", field: "submitter", filter: "agTextColumnFilter" },
   {
