@@ -11,16 +11,24 @@ const Button = props => {
       css={css`
         background: ${defaultStyle ? "#ff6f61" : "white"};
         padding: 0.4em 0.5em;
-        border: none;
+        border: 1px solid transparent;
         border-radius: 0.6em;
         color: ${defaultStyle ? "white" : "#ff6f61"};
         cursor: pointer;
         font-family: "Lato";
 
         :hover {
+          background: ${defaultStyle ? "#ff9d91" : "#fff"};
+          color: ${defaultStyle ? "white" : "#ff6f61"};
+          border: ${defaultStyle
+            ? "1px solid transparent"
+            : "1px solid #ff9d91"};
         }
 
         :active {
+          background: ${defaultStyle ? "none" : "#ff9d91"};
+          color: ${defaultStyle ? "#ff6f61" : "white"};
+          border: 1px solid #ff9d91;
         }
       `}
       type="button"
