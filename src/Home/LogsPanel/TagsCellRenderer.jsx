@@ -12,6 +12,8 @@ const TagsCellRenderer = props => {
     <div
       css={css`
         display: flex;
+        width: 100%;
+        flex-wrap: wrap;
       `}
     >
       {tags.map(tag => (
@@ -24,6 +26,8 @@ const TagsCellRenderer = props => {
             margin-right: 0.6em;
             padding-left: 0.4em;
             padding-right: 0.4em;
+            margin-top: 0.2em;
+            margin-bottom: 0.2em;
           `}
         >
           {tag}
@@ -34,7 +38,7 @@ const TagsCellRenderer = props => {
 };
 
 TagsCellRenderer.propTypes = {
-  value: PropTypes.number.isRequired
+  value: PropTypes.string.isRequired
 };
 
 export default TagsCellRenderer;

@@ -40,9 +40,10 @@ const COLUMN_DEFS = [
   { headerName: "Submitter", field: "submitter", filter: "agTextColumnFilter" },
   {
     headerName: "Tags",
+    autoHeight: true,
     field: "tags",
     filter: "agTextColumnFilter",
-    width: 720,
+    width: 300,
     cellRendererFramework: TagsCellRenderer
   },
   {
@@ -106,7 +107,7 @@ PanelTop.propTypes = {
 };
 
 const Logs = props => {
-  const { columnDefs, rowData } = props;
+  const { columnDefs, rowData, onGridReady } = props;
   return (
     <div
       className="ag-theme-balham"
@@ -118,6 +119,7 @@ const Logs = props => {
       <AgGridReact
         columnDefs={columnDefs}
         rowData={rowData}
+        onGridReady={onGridReady}
         floatingFilter
         rowSelection="multiple"
       />
@@ -128,17 +130,20 @@ const Logs = props => {
 Logs.propTypes = {
   columnDefs: PropTypes.arrayOf(
     PropTypes.shape({
-      headerName: PropTypes.string.isRequired,
-      field: PropTypes.string.isRequired
+      headerName: PropTypes.string,
+      field: PropTypes.string
     })
   ).isRequired,
   rowData: PropTypes.arrayOf(
     PropTypes.shape({
-      actions: PropTypes.string.isRequired,
-      status: PropTypes.string.isRequired,
-      id: PropTypes.number.isRequired
+      id: PropTypes.number.isRequired,
+      date: PropTypes.string.isRequired,
+      submitter: PropTypes.string.isRequired,
+      tags: PropTypes.string.isRequired,
+      devRemarkCount: PropTypes.number.isRequired
     })
-  ).isRequired
+  ).isRequired,
+  onGridReady: PropTypes.func.isRequired
 };
 
 class LogsPanel extends Component {
@@ -151,9 +156,14 @@ class LogsPanel extends Component {
     };
   }
 
+  onGridReady = params => {
+    setTimeout(() => {
+      params.api.resetRowHeights();
+    }, 500);
+  };
+
   render() {
     const { systems, currentSystem, rowData } = this.state;
-    console.log(LogsData);
     return (
       <section
         css={css`
@@ -169,7 +179,11 @@ class LogsPanel extends Component {
           </PanelOptions>
           <p>10 Unresolved Bug Reports | 5 Unresolved General Feedback</p>
         </PanelTop>
-        <Logs columnDefs={COLUMN_DEFS} rowData={rowData} />
+        <Logs
+          columnDefs={COLUMN_DEFS}
+          rowData={rowData}
+          onGridReady={this.onGridReady}
+        />
       </section>
     );
   }

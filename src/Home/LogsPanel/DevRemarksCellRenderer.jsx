@@ -17,6 +17,7 @@ const DevRemarksCellRenderer = props => {
         align-items: center;
         height: 100%;
         margin: auto 0;
+        margin-top: 0.375em;
       `}
     >
       <Link
