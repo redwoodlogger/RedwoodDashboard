@@ -77,7 +77,7 @@ const RightPanel = () => (
       display: flex;
       flex-direction: column;
       border-left: 1px solid #e5e5e5;
-      font-family: "Lato";
+      font-family: "Source Sans Pro";
     `}
   >
     <Details>
