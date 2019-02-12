@@ -43,12 +43,13 @@ const LeftPanel = () => (
       <Button
         css={css`
           padding: 5px;
-          margin: 5px 0 5px 20px;
-          width: 75px;
-          border-radius: 8px;
+          margin: 5px 0 5px 15px;
+          width: 70px;
+          font-size: 10pt;
+          border-radius: 10px;
         `}
       >
-        Back
+        &lt;&nbsp;Back
       </Button>
     </div>
     <Details />

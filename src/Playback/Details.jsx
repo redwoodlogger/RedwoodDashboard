@@ -14,6 +14,7 @@ const iconStyle = css`
   width: 20px;
   margin: 5px 10px 0 0;
   display: inline-block;
+  color: black;
 `;
 
 const Details = () => (
@@ -26,6 +27,8 @@ const Details = () => (
     <div
       css={css`
         margin-top: 5px;
+        font-size: 12pt;
+        color: #555;
       `}
     >
       <p>
@@ -66,7 +69,7 @@ const Details = () => (
         >
           <FontAwesomeIcon icon={faClock} />
         </div>
-        02 December 2018 3:21 PM (GMT+8)
+        02 December 2018, 3:21 PM (GMT+8)
       </p>
     </div>
   </Group>

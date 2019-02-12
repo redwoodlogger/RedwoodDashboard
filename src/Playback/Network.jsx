@@ -8,6 +8,7 @@ const Network = () => (
   <Group
     css={css`
       flex: 1;
+      padding: 15px;
     `}
   >
     <GroupTitle>Network</GroupTitle>
