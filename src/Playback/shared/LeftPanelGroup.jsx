@@ -11,7 +11,7 @@ export const Group = props => {
       css={css`
         background: white;
         border-top: 1px solid #e5e5e5;
-        font-family: "Lato";
+        font-family: "Source Sans Pro";
       `}
       {...props}
     >

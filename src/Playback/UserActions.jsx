@@ -102,7 +102,7 @@ const UserActions = () => (
         border: solid #e5e5e5 1px;
         border-radius: 8px;
         width: 90%;
-        height: 250px;
+        height: 300px;
         overflow: auto;
       `}
     >
@@ -110,16 +110,9 @@ const UserActions = () => (
       <UserAction count="2" event="MOUSE CLICK" element="button-submit" />
       <UserAction count="3" event="MOUSE CLICK" element="video-desc" />
       <UserAction count="4" event="MOUSE CLICK" element="div-title" />
-      <UserAction count="4" event="MOUSE CLICK" element="div-title" />
-      <UserAction count="4" event="MOUSE CLICK" element="div-title" />
-      <UserAction count="4" event="MOUSE CLICK" element="div-title" />
-      <UserAction count="4" event="MOUSE CLICK" element="div-title" />
-      <UserAction count="4" event="MOUSE CLICK" element="div-title" />
-      <UserAction count="4" event="MOUSE CLICK" element="div-title" />
-      <UserAction count="4" event="MOUSE CLICK" element="div-title" />
-      <UserAction count="4" event="MOUSE CLICK" element="div-title" />
-      <UserAction count="4" event="MOUSE CLICK" element="div-title" />
-      <UserAction count="4" event="MOUSE CLICK" element="div-title" />
+      <UserAction count="5" event="KEY RELEASE" element="div-username" />
+      <UserAction count="6" event="KEY RELEASE" element="div-password" />
+      <UserAction count="7" event="MOUSE CLICK" element="button-submit" />
     </Group>
   </Group>
 );
