@@ -32,7 +32,7 @@ const Hashtags = () => (
         height: 2.2em;
         margin-top: 0.5em;
         margin-left: 0.5em;
-        font-family: "Lato";
+        font-family: "Source Sans Pro";
       `}
       placeholder="Add a tag"
     />

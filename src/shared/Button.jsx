@@ -15,8 +15,7 @@ const Button = props => {
         border-radius: 0.6em;
         color: ${defaultStyle ? "white" : "#ff6f61"};
         cursor: pointer;
-
-        font-family: "Lato";
+        font-family: "Source Sans Pro";
 
         :hover {
           background: ${defaultStyle ? "#ff9d91" : "#fff"};
