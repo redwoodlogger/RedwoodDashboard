@@ -41,7 +41,7 @@ const DevRemarksCellRenderer = props => {
             align-items: center;
           `}
         >
-          {`3${/* value.devRemarkCount */ " "}`}
+          {value.devRemarkCount}
         </div>
         <IoIosArrowForward />
       </Link>

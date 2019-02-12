@@ -5,11 +5,14 @@ import { css, jsx } from "@emotion/core";
 import PropTypes from "prop-types";
 import { AgGridReact } from "ag-grid-react";
 import SystemDropdown from "./SystemDropdown";
-import ActionCellRenderer from "./ActionCellRenderer";
 import Button from "../../shared/Button";
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-balham.css";
+import ActionCellRenderer from "./ActionCellRenderer";
 import DevRemarksCellRenderer from "./DevRemarksCellRenderer";
+import TagsCellRenderer from "./TagsCellRenderer";
+
+import { LogsData } from "./LogsData";
 
 const COLUMN_DEFS = [
   {
@@ -31,11 +34,17 @@ const COLUMN_DEFS = [
   },
   {
     headerName: "Date Submitted",
-    field: "dateSubmitted",
+    field: "date",
     filter: "agDateColumnFilter"
   },
   { headerName: "Submitter", field: "submitter", filter: "agTextColumnFilter" },
-  { headerName: "Tags", field: "tags", filter: "agTextColumnFilter" },
+  {
+    headerName: "Tags",
+    field: "tags",
+    filter: "agTextColumnFilter",
+    width: 720,
+    cellRendererFramework: TagsCellRenderer
+  },
   {
     headerName: "Dev Remarks",
     colId: "devRemarks",
@@ -136,11 +145,7 @@ class LogsPanel extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      rowData: [
-        { actions: "Toyota", status: "Celica", id: 35000 },
-        { actions: "Ford", status: "Mondeo", id: 32000 },
-        { actions: "Porsche", status: "Boxter", id: 72000 }
-      ],
+      rowData: LogsData,
       systems: ["System 1", "System 2", "System 3"],
       currentSystem: "System 1"
     };
@@ -148,6 +153,7 @@ class LogsPanel extends Component {
 
   render() {
     const { systems, currentSystem, rowData } = this.state;
+    console.log(LogsData);
     return (
       <section
         css={css`
