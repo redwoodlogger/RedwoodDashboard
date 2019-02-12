@@ -31,11 +31,17 @@ const COLUMN_DEFS = [
   {
     headerName: "Date Submitted",
     field: "dateSubmitted",
-    filter: "agTextColumnFilter"
+    filter: "agDateColumnFilter"
   },
   { headerName: "Submitter", field: "submitter", filter: "agTextColumnFilter" },
   { headerName: "Tags", field: "tags", filter: "agTextColumnFilter" },
-  { headerName: "Dev Remarks", field: "devRemarks" }
+  { headerName: "", field: "devRemarks" }
+  {
+    headerName: "Dev Remarks", colId: 'devRemarks', 
+    valueGetter: params => {
+      return { devRemarkCount: params.data.devRemarkCount, id: params.data.id };
+    }
+  },
 ];
 
 const PanelButtons = () => (
