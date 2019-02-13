@@ -15,6 +15,7 @@ const CommentUser = props => {
         align-items: center;
         margin-bottom: 0.5em;
       `}
+      {...props}
     >
       {children}
     </div>
@@ -30,7 +31,17 @@ CommentUser.propTypes = {
 
 const CommentUsername = props => {
   const { children } = props;
-  return <p>{children}</p>;
+  return (
+    <p
+      css={css`
+        font-weight: bold;
+        color: #333333;
+      `}
+      {...props}
+    >
+      {children}
+    </p>
+  );
 };
 
 CommentUsername.propTypes = {
@@ -42,8 +53,13 @@ const CommentContent = props => {
   return (
     <p
       css={css`
-        font-family: "Sarabun";
+        font-family: "Source Sans Pro";
+        font-style: normal;
+        font-weight: normal;
+        color: #5b5b5b;
+        font-size: 0.9em;
       `}
+      {...props}
     >
       {children}
     </p>
@@ -64,6 +80,7 @@ const CommentDate = props => {
         margin-top: 0.5em;
         text-align: right;
       `}
+      {...props}
     >
       {children}
     </p>
@@ -85,6 +102,7 @@ const Comment = props => {
         padding: 1em;
         margin-bottom: 0.5em;
       `}
+      {...props}
     >
       <CommentUser>
         <UserBubble
