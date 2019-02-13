@@ -88,18 +88,16 @@ class RightPanel extends Component {
       comments: [],
       commentInput: ""
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
+  handleChange = event => {
     const { value } = event.target;
     this.setState({
       commentInput: value
     });
-  }
+  };
 
-  handleSubmit(event) {
+  handleSubmit = event => {
     event.preventDefault();
     const { commentInput } = this.state;
     if (commentInput) {
@@ -108,7 +106,7 @@ class RightPanel extends Component {
         commentInput: ""
       }));
     }
-  }
+  };
 
   render() {
     const { commentInput, comments } = this.state;
