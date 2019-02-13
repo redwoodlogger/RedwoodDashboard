@@ -44,17 +44,19 @@ UserAccount.propTypes = {
 const Logo = props => {
   const { children } = props;
   return (
-    <p
-      css={css`
-        color: white;
-        margin: 0 0 0 4em;
-        font-family: "Roboto";
-        font-weight: bold;
-        letter-spacing: 0.5em;
-      `}
-    >
-      {children}
-    </p>
+    <a href="/" style={{ "text-decoration": "none" }}>
+      <p
+        css={css`
+          color: white;
+          margin: 0 0 0 4em;
+          font-family: "Roboto";
+          font-weight: bold;
+          letter-spacing: 0.5em;
+        `}
+      >
+        {children}
+      </p>
+    </a>
   );
 };
 
