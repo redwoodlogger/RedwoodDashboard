@@ -146,7 +146,7 @@ const Comments = ({ commentList }) => (
     />
     {commentList.map((comments, index) => (
       <Comment
-        key={index.toString()}
+        key={comments + index.toString()}
         user="Mervyn"
         comment={comments}
         date="17 February 2019"
