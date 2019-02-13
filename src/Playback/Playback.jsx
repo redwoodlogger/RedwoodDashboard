@@ -3,6 +3,9 @@ import React from "react";
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
 import PropTypes from "prop-types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLessThan } from "@fortawesome/free-solid-svg-icons";
+
 import Navbar from "../Navbar";
 import Button from "../shared/Button";
 import Details from "./Details";
@@ -42,14 +45,23 @@ const LeftPanel = () => (
     <div>
       <Button
         css={css`
+          display: flex;
+          justify-content: center;
+          align-items: center;
           padding: 5px;
           margin: 5px 0 5px 15px;
           width: 70px;
-          font-size: 10pt;
+          font-size: 11pt;
+          font-weight: 500;
           border-radius: 10px;
+
+          :focus {
+            outline: 0;
+          }
         `}
       >
-        &lt;&nbsp;Back
+        <FontAwesomeIcon icon={faLessThan} />
+        &nbsp;&nbsp;Back
       </Button>
     </div>
     <Details />

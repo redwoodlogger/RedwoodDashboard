@@ -28,6 +28,7 @@ class UserActionItems extends React.Component {
           type="button"
           css={css`
             display: flex;
+            font-family: "Source Sans Pro";
             align-items: center;
             width: 100%;
             height: 50px;
@@ -59,6 +60,7 @@ class UserActionItems extends React.Component {
             css={css`
               color: #555;
               text-align: left;
+              font-size: 11pt;
             `}
           >
             <p>{event}</p>
