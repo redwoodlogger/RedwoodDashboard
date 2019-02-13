@@ -20,6 +20,7 @@ const details = css`
 
 const iconStyle = css`
   width: 20px;
+  align-content: flex-end;
   margin: 0 10px 5px 0;
 `;
 
