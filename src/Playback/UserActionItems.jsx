@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React from "react";
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
@@ -9,7 +10,6 @@ class UserActionItems extends React.Component {
     this.state = {
       isActive: false
     };
-
     this.toggleActive = this.toggleActive.bind(this);
   }
 
@@ -20,11 +20,11 @@ class UserActionItems extends React.Component {
   };
 
   render() {
-    const { count, event, element } = this.props;
+    const { count, event, element, isSelected, setActive } = this.props;
     return (
       <div>
         <button
-          onClick={this.toggleActive}
+          onClick={setActive}
           type="button"
           css={css`
             display: flex;
@@ -32,14 +32,14 @@ class UserActionItems extends React.Component {
             align-items: center;
             width: 100%;
             height: 50px;
-            background: ${this.state.isActive ? "#efefef" : "transparent"};
+            background: ${isSelected ? "#efefef" : "transparent"};
             border: none;
             border-bottom: solid 1px #e5e5e5;
             padding: 10px;
 
             :hover {
               cursor: pointer;
-              background: ${this.state.isActive ? "" : "#fcfcfc"};
+              background: ${isSelected ? "" : "#fcfcfc"};
             }
 
             :focus {
