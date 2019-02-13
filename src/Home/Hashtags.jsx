@@ -17,12 +17,48 @@ const Hashtags = () => (
         font-weight: bold;
       `}
     >
-      <Hashtag>#hashtag</Hashtag>
-      <Hashtag>#longerhashtag</Hashtag>
-      <Hashtag>#shorttag</Hashtag>
-      <Hashtag>#superlonghashtag</Hashtag>
-      <Hashtag>#hashhash</Hashtag>
-      <Hashtag>#tagtag</Hashtag>
+      <Hashtag
+        css={css`
+          background: #e15239;
+        `}
+      >
+        #hashtag
+      </Hashtag>
+      <Hashtag
+        css={css`
+          background: #f8c169;
+        `}
+      >
+        #longerhashtag
+      </Hashtag>
+      <Hashtag
+        css={css`
+          background: #dba8cd;
+        `}
+      >
+        #shorttag
+      </Hashtag>
+      <Hashtag
+        css={css`
+          background: #8ebc4f;
+        `}
+      >
+        #superlonghashtag
+      </Hashtag>
+      <Hashtag
+        css={css`
+          background: #185fad;
+        `}
+      >
+        #hashhash
+      </Hashtag>
+      <Hashtag
+        css={css`
+          background: #bf6ebf;
+        `}
+      >
+        #tagtag
+      </Hashtag>
     </div>
     <input
       css={css`
@@ -31,7 +67,7 @@ const Hashtags = () => (
         width: 100%;
         height: 2.2em;
         margin-top: 0.5em;
-        margin-left: 0.5em;
+        padding-left: 0.3em;
         font-family: "Source Sans Pro";
       `}
       placeholder="Add a tag"

@@ -1,33 +1,44 @@
 // eslint-disable-next-line no-unused-vars
-import React from "react";
+import React, { Component } from "react";
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
 import PropTypes from "prop-types";
 import Navbar from "../Navbar";
 import LogsPanel from "./LogsPanel/LogsPanel";
+import { LogsData } from "./LogsPanel/LogsData";
 import RightPanel from "./RightPanel";
 
-const Panels = props => {
-  const { children } = props;
-  return (
-    <div
-      css={css`
-        flex: 1;
-        display: flex;
-        overflow: hidden;
-      `}
-    >
-      {children}
-    </div>
-  );
-};
+class Panels extends Component {
+  constructor(props) {
+    super(props);
 
-Panels.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]).isRequired
-};
+    this.state = {
+      rowData: LogsData,
+      systems: ["System 1", "System 2", "System 3"],
+      currentSystem: "System 1"
+    };
+  }
+
+  render() {
+    const { rowData, systems, currentSystem } = this.state;
+    return (
+      <div
+        css={css`
+          flex: 1;
+          display: flex;
+          overflow: hidden;
+        `}
+      >
+        <LogsPanel
+          rowData={rowData}
+          systems={systems}
+          currentSystem={currentSystem}
+        />
+        <RightPanel />
+      </div>
+    );
+  }
+}
 
 const Home = () => (
   <div
@@ -38,10 +49,7 @@ const Home = () => (
     `}
   >
     <Navbar />
-    <Panels>
-      <LogsPanel />
-      <RightPanel />
-    </Panels>
+    <Panels />
   </div>
 );
 

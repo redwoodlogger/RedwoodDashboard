@@ -12,8 +12,6 @@ import ActionCellRenderer from "./ActionCellRenderer";
 import DevRemarksCellRenderer from "./DevRemarksCellRenderer";
 import TagsCellRenderer from "./TagsCellRenderer";
 
-import { LogsData } from "./LogsData";
-
 const COLUMN_DEFS = [
   {
     headerName: "",
@@ -146,48 +144,50 @@ Logs.propTypes = {
   onGridReady: PropTypes.func.isRequired
 };
 
-class LogsPanel extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      rowData: LogsData,
-      systems: ["System 1", "System 2", "System 3"],
-      currentSystem: "System 1"
-    };
-  }
-
-  onGridReady = params => {
+const LogsPanel = props => {
+  function onGridReady(params) {
     setTimeout(() => {
       params.api.resetRowHeights();
     }, 500);
-  };
-
-  render() {
-    const { systems, currentSystem, rowData } = this.state;
-    return (
-      <section
-        css={css`
-          flex: 1;
-          padding: 1em 2em 0 4em;
-          overflow: auto;
-          font-family: "Source Sans Pro";
-        `}
-      >
-        <PanelTop>
-          <PanelOptions>
-            <SystemDropdown systems={systems} currentSystem={currentSystem} />
-            <PanelButtons />
-          </PanelOptions>
-          <p>10 Unresolved Bug Reports | 5 Unresolved General Feedback</p>
-        </PanelTop>
-        <Logs
-          columnDefs={COLUMN_DEFS}
-          rowData={rowData}
-          onGridReady={this.onGridReady}
-        />
-      </section>
-    );
   }
-}
 
+  const { systems, currentSystem, rowData } = props;
+  return (
+    <section
+      css={css`
+        flex: 1;
+        padding: 1em 2em 0 4em;
+        overflow: auto;
+        font-family: "Source Sans Pro";
+      `}
+    >
+      <PanelTop>
+        <PanelOptions>
+          <SystemDropdown systems={systems} currentSystem={currentSystem} />
+          <PanelButtons />
+        </PanelOptions>
+        <p>10 Unresolved Bug Reports | 5 Unresolved General Feedback</p>
+      </PanelTop>
+      <Logs
+        columnDefs={COLUMN_DEFS}
+        rowData={rowData}
+        onGridReady={onGridReady}
+      />
+    </section>
+  );
+};
+
+LogsPanel.propTypes = {
+  rowData: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      date: PropTypes.string.isRequired,
+      submitter: PropTypes.string.isRequired,
+      tags: PropTypes.string.isRequired,
+      devRemarkCount: PropTypes.number.isRequired
+    })
+  ).isRequired,
+  systems: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  currentSystem: PropTypes.string.isRequired
+};
 export default LogsPanel;

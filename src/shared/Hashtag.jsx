@@ -29,6 +29,7 @@ const Hashtag = props => {
           color: #bf6ebf;
         }
       `}
+      {...props}
       type="button"
     >
       {children}
