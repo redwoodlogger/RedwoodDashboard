@@ -3,7 +3,6 @@ import React from "react";
 import PropTypes from "prop-types";
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import UserBubble from "./shared/UserBubble";
 
 const UserAccount = props => {
@@ -44,7 +43,12 @@ UserAccount.propTypes = {
 const Logo = props => {
   const { children } = props;
   return (
-    <a href="/" style={{ "text-decoration": "none" }}>
+    <a
+      href="/"
+      css={css`
+        text-decoration: none;
+      `}
+    >
       <p
         css={css`
           color: white;
