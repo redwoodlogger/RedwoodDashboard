@@ -25,6 +25,15 @@ const iconStyle = css`
   margin: 0 10px 5px 0;
 `;
 
+const UserInfo = [
+  {
+    user: "Ash Ketchum",
+    report: "Bug report #123456",
+    system: "SystemOne",
+    date: "02 December 2018 3:21 PM (GMT+8)"
+  }
+];
+
 const UserDetail = props => {
   const { user, report, system, date } = props;
 
@@ -120,12 +129,16 @@ const Details = () => (
         color: #555;
       `}
     />
-    <UserDetail
-      user="Ash Ketchum"
-      report="Bug report #123456"
-      system="SystemOne"
-      date="02 December 2018 3:21 PM (GMT+8)"
-    />
+
+    {UserInfo.map(user => (
+      <UserDetail
+        key={user.user}
+        user={user.user}
+        report={user.report}
+        system={user.system}
+        date={user.date}
+      />
+    ))}
   </Group>
 );
 

@@ -20,7 +20,7 @@ class UserActionItems extends React.Component {
   };
 
   render() {
-    const { count, event, element, isSelected, setActive } = this.props;
+    const { order, event, element, isSelected, setActive } = this.props;
     return (
       <div>
         <button
@@ -31,7 +31,7 @@ class UserActionItems extends React.Component {
             font-family: "Source Sans Pro";
             align-items: center;
             width: 100%;
-            height: 50px;
+
             background: ${isSelected ? "#efefef" : "transparent"};
             border: none;
             border-bottom: solid 1px #e5e5e5;
@@ -54,7 +54,7 @@ class UserActionItems extends React.Component {
               font-weight: 600;
             `}
           >
-            {count}
+            {order}
           </p>
           <div
             css={css`
@@ -64,19 +64,15 @@ class UserActionItems extends React.Component {
             `}
           >
             <p>{event}</p>
-            <p
-              css={css`
-                color: #ff6f61;
-              `}
-            >
+            <p>
+              on element &nbsp;
               <span
                 css={css`
-                  color: #555;
+                  color: #ff6f61;
                 `}
               >
-                on element &nbsp;
+                {element}
               </span>
-              {element}
             </p>
           </div>
         </button>
@@ -86,9 +82,11 @@ class UserActionItems extends React.Component {
 }
 
 UserActionItems.propTypes = {
-  count: PropTypes.string.isRequired,
+  order: PropTypes.string.isRequired,
   event: PropTypes.string.isRequired,
-  element: PropTypes.string.isRequired
+  element: PropTypes.string.isRequired,
+  isSelected: PropTypes.bool.isRequired,
+  setActive: PropTypes.func.isRequired
 };
 
 export default UserActionItems;
