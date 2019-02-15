@@ -83,8 +83,14 @@ const MainPanel = () => (
       css={css`
         flex: 1;
       `}
-      id="viewer"
-    />
+    >
+      <div
+        id="viewer"
+        css={css`
+          height: 100%;
+        `}
+      />
+    </div>
     <Console />
   </section>
 );

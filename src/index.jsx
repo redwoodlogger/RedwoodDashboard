@@ -6,8 +6,36 @@ import ReactDOM from "react-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+
+import rrwebPlayer from "rrweb-player";
+import { record } from "rrweb";
 import Home from "./Home/Home";
 import Playback from "./Playback/Playback";
+
+// We use a two-dimensional array to store multiple events array
+const eventsMatrix = [[]];
+
+record({
+  emit(event, isCheckout) {
+    // isCheckout is a flag to tell you the events has been checkout
+    if (isCheckout) {
+      eventsMatrix.push([]);
+    }
+    const lastEvents = eventsMatrix[eventsMatrix.length - 1];
+    lastEvents.push(event);
+  },
+  checkoutEveryNms: 2 * 60 * 1000 // checkout every 2 minutes
+});
+
+const replay = () => {
+  new rrwebPlayer({
+    target: document.querySelector("#viewer"), // customizable root element
+    data: {
+      events: eventsMatrix[eventsMatrix.length - 1],
+      autoPlay: true
+    }
+  });
+};
 
 library.add(faAngleDown);
 
@@ -204,8 +232,91 @@ const App = () => (
           font-weight: normal;
           src: url("src/Fonts/SourceSansPro-Regular.ttf") format("truetype");
         }
+
+        .rr-controller {
+          width: 100%;
+          height: 80px;
+          background: #fff;
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          align-items: center;
+          border-radius: 0 0 5px 5px;
+        }
+        .rr-timeline {
+          width: 80%;
+          display: flex;
+          align-items: center;
+        }
+        .rr-timeline__time {
+          padding: 0 20px;
+          color: #11103e;
+        }
+        .rr-progress {
+          width: 100%;
+          height: 4px;
+          background: #eee;
+          position: relative;
+          border-radius: 3px;
+          /* cursor: pointer; */
+        }
+        .rr-progress__step {
+          height: 100%;
+          position: absolute;
+          left: 0;
+          top: 0;
+          background: #e0e1fe;
+        }
+        .rr-progress__handler {
+          width: 20px;
+          height: 20px;
+          border-radius: 10px;
+          position: absolute;
+          top: 2px;
+          transform: translate(-50%, -50%);
+          background: rgb(73, 80, 246);
+        }
+        .rr-controller__btns {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 13px;
+        }
+        .rr-controller__btns button {
+          width: 32px;
+          height: 32px;
+          display: flex;
+          padding: 0;
+          align-items: center;
+          justify-content: center;
+          background: none;
+          border: none;
+          border-radius: 50%;
+          cursor: pointer;
+        }
+        .rr-controller__btns button:active {
+          background: #e0e1fe;
+        }
+        .rr-controller__btns button.active {
+          color: #fff;
+          background: rgb(73, 80, 246);
+        }
+        .rr-controller__btns button:disabled {
+          cursor: not-allowed;
+        }
+        .rr-player {
+          width: 100% !important;
+          height: 100% !important;
+          display: flex;
+          flex-direction: column;
+        }
+        .replayer-wrapper {
+          transform: scale(0.58) translate(0%, -35%) !important;
+        }
       `}
     />
+    <button onClick={replay}>replay</button>
     <Switch>
       <Route exact path="/" component={Home} />
       <Route path="/playback" component={Playback} />

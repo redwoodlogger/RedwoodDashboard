@@ -7,7 +7,7 @@ import { Group, GroupTitle } from "./shared/LeftPanelGroup";
 const Console = () => (
   <Group
     css={css`
-      height: 15em;
+      height: 12em;
     `}
   >
     <GroupTitle>Console</GroupTitle>
