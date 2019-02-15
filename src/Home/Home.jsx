@@ -28,8 +28,6 @@ class Panels extends Component {
       });
     });
 
-    // console.log(colourMapping);
-
     LogsData.forEach(value => {
       let colourString = "";
       let colour = "";

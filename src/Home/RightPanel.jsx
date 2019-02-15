@@ -71,6 +71,7 @@ Details.propTypes = {
 
 const RightPanel = props => {
   const { currentRow } = props;
+  console.log(currentRow);
   let hashtags = [];
   if (currentRow) {
     let {
@@ -107,6 +108,24 @@ const RightPanel = props => {
       <CommentBox />
     </aside>
   );
+};
+
+RightPanel.defaultProps = {
+  currentRow: undefined
+};
+
+RightPanel.propTypes = {
+  currentRow: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    date: PropTypes.string.isRequired,
+    devRemarkCount: PropTypes.number.isRequired,
+    obj: PropTypes.shape({
+      colours: PropTypes.string,
+      tags: PropTypes.string
+    }),
+    submitter: PropTypes.string.isRequired,
+    tags: PropTypes.string
+  })
 };
 
 export default RightPanel;
