@@ -6,14 +6,12 @@ import { css, jsx } from "@emotion/core";
 
 const TagsCellRenderer = props => {
   const { value } = props;
-  // const tags = value.split(";");
   const tags = value.tags.split(";");
   const colours = value.obj.colours.split(";");
   const tagColourPairs = {};
   tags.forEach((tag, index) => {
     tagColourPairs[tag.trim()] = colours[index];
   });
-  // console.log(tagColourPairs);
 
   return (
     <div
@@ -28,6 +26,8 @@ const TagsCellRenderer = props => {
           key={tag}
           css={css`
             background-color: ${tagColourPairs[tag]};
+            color: #ffffff;
+            font-family: "Sarabun";
             width: auto;
             border-radius: 0.4em;
             margin-right: 0.6em;
