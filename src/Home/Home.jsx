@@ -46,7 +46,6 @@ class Panels extends Component {
       obj.tags = value.tags;
       obj.colours = colourString;
       value.obj = obj;
-      // value.tags = tagString;
     });
 
     this.state = {
@@ -55,27 +54,6 @@ class Panels extends Component {
       currentSystem: "System 1"
     };
   }
-  /*
-    componentDidMount() {
-      const colourMapping = new Map();
-      const rowData = LogsData;
-  
-      const allTags = LogsData.map(entry => entry.tags);
-      const numColours = Object.keys(ColourData).length;
-      let tagCount = 0;
-  
-      allTags.forEach(value => {
-        const tags = value.split(";");
-        tags.forEach(tag => {
-          if (!colourMapping.has(tag.trim())) {
-            colourMapping.set(tag.trim(), ColourData[tagCount % numColours]);
-            tagCount += 1;
-          }
-        });
-      });
-  
-      this.setState({ colourMapping }, { rowData });
-    } */
 
   render() {
     const { rowData, systems, currentSystem } = this.state;
