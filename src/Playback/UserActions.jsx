@@ -23,13 +23,14 @@ class UserActions extends React.Component {
     };
   }
 
-  setActiveAction = index => () => {
+  setActiveAction = index => {
     this.setState({
       activeActionIndex: index
     });
   };
 
   render() {
+    const { activeActionIndex } = this.state;
     return (
       <Group
         css={css`
@@ -48,11 +49,11 @@ class UserActions extends React.Component {
             overflow: auto;
           `}
         >
-          {Actions.map((action, index) => (
+          {Actions.map(action => (
             <UserActionItems
               key={action.order}
-              setActive={this.setActiveAction(index)}
-              isSelected={index === this.state.activeActionIndex}
+              setActive={this.setActiveAction}
+              isSelected={action.order === activeActionIndex}
               order={action.order}
               event={action.event}
               element={action.element}

@@ -10,21 +10,14 @@ class UserActionItems extends React.Component {
     this.state = {
       isActive: false
     };
-    this.toggleActive = this.toggleActive.bind(this);
   }
-
-  toggleActive = () => {
-    this.setState({
-      isActive: !this.state.isActive
-    });
-  };
 
   render() {
     const { order, event, element, isSelected, setActive } = this.props;
     return (
       <div>
         <button
-          onClick={setActive}
+          onClick={() => setActive(order)}
           type="button"
           css={css`
             display: flex;
