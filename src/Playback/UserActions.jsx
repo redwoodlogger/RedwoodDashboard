@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React from "react";
+import React, { Component } from "react";
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
 import UserActionItems from "./UserActionItems";
@@ -15,7 +15,7 @@ const Actions = [
   { order: "7", event: "MOUSE CLICK", element: "div-submit-online-option" }
 ];
 
-class UserActions extends React.Component {
+class UserActions extends Component {
   constructor(props) {
     super(props);
     this.state = {
