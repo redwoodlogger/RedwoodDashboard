@@ -116,11 +116,7 @@ UserDetail.propTypes = {
 };
 
 const Details = () => (
-  <Group
-    css={css`
-      padding: 15px;
-    `}
-  >
+  <Group>
     <GroupTitle>Details</GroupTitle>
     <div
       css={css`

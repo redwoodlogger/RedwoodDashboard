@@ -35,7 +35,6 @@ class UserActions extends Component {
       <Group
         css={css`
           flex: 1;
-          padding: 15px;
         `}
       >
         <GroupTitle>User Actions</GroupTitle>

@@ -11,6 +11,7 @@ import Button from "../shared/Button";
 import Details from "./Details";
 import UserActions from "./UserActions";
 import Network from "./Network";
+import Console from "./Console";
 
 const PlaybackPanel = props => {
   const { children } = props;
@@ -70,7 +71,23 @@ const LeftPanel = () => (
   </section>
 );
 
-const MainPanel = () => <section>Hello there</section>;
+const MainPanel = () => (
+  <section
+    css={css`
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    `}
+  >
+    <div
+      css={css`
+        flex: 1;
+      `}
+      id="viewer"
+    />
+    <Console />
+  </section>
+);
 
 const Playback = () => (
   <div

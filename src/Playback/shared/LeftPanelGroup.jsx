@@ -12,6 +12,7 @@ export const Group = props => {
         background: white;
         border-top: 1px solid #e5e5e5;
         font-family: "Source Sans Pro";
+        padding: 15px;
       `}
       {...props}
     >

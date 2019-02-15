@@ -4,14 +4,14 @@ import React from "react";
 import { css, jsx } from "@emotion/core";
 import { Group, GroupTitle } from "./shared/LeftPanelGroup";
 
-const Network = () => (
+const Console = () => (
   <Group
     css={css`
-      flex: 1;
+      height: 15em;
     `}
   >
-    <GroupTitle>Network</GroupTitle>
+    <GroupTitle>Console</GroupTitle>
   </Group>
 );
 
-export default Network;
+export default Console;
