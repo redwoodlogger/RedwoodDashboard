@@ -6,7 +6,15 @@ import { css, jsx } from "@emotion/core";
 
 const TagsCellRenderer = props => {
   const { value } = props;
-  const tags = value.split(";");
+  // const tags = value.split(";");
+  const tags = value.tags.split(";");
+  const colours = value.obj.colours.split(";");
+  const tagColourPairs = {};
+  tags.forEach((tag, index) => {
+    tagColourPairs[tag.trim()] = colours[index];
+  });
+  // console.log(tagColourPairs);
+
   return (
     <div
       css={css`
@@ -15,11 +23,11 @@ const TagsCellRenderer = props => {
         flex-wrap: wrap;
       `}
     >
-      {tags.map(tag => (
+      {Object.keys(tagColourPairs).map(tag => (
         <div
           key={tag}
           css={css`
-            background-color: #bf6ebf;
+            background-color: ${tagColourPairs[tag]};
             width: auto;
             border-radius: 0.4em;
             margin-right: 0.6em;
@@ -37,7 +45,10 @@ const TagsCellRenderer = props => {
 };
 
 TagsCellRenderer.propTypes = {
-  value: PropTypes.string.isRequired
+  // value: PropTypes.string.isRequired
+  value: PropTypes.shape({
+    tags: PropTypes.string
+  }).isRequired
 };
 
 export default TagsCellRenderer;

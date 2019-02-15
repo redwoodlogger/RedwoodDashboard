@@ -39,7 +39,11 @@ const COLUMN_DEFS = [
   {
     headerName: "Tags",
     autoHeight: true,
-    field: "tags",
+    //    field: "tags",
+    valueGetter: params => ({
+      tags: params.data.tags,
+      obj: params.data.obj
+    }),
     filter: "agTextColumnFilter",
     width: 300,
     cellRendererFramework: TagsCellRenderer
