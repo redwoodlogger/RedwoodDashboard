@@ -234,15 +234,13 @@ const App = () => (
         }
 
         .rr-controller {
-          width: 100%;
-          height: 80px;
-          background: #fff;
+          background: #dcdcdc;
+          padding: 20px;
           flex: 1;
           display: flex;
           flex-direction: column;
           justify-content: space-around;
           align-items: center;
-          border-radius: 0 0 5px 5px;
         }
         .rr-timeline {
           width: 80%;
@@ -255,8 +253,8 @@ const App = () => (
         }
         .rr-progress {
           width: 100%;
-          height: 4px;
-          background: #eee;
+          height: 8px;
+          background: #fff;
           position: relative;
           border-radius: 3px;
           /* cursor: pointer; */
@@ -266,16 +264,17 @@ const App = () => (
           position: absolute;
           left: 0;
           top: 0;
-          background: #e0e1fe;
+          border-radius: 3px;
+          background: #ff6f61;
         }
         .rr-progress__handler {
           width: 20px;
           height: 20px;
           border-radius: 10px;
           position: absolute;
-          top: 2px;
+          top: 4px;
           transform: translate(-50%, -50%);
-          background: rgb(73, 80, 246);
+          background: #ff6f61;
         }
         .rr-controller__btns {
           display: flex;
@@ -296,11 +295,11 @@ const App = () => (
           cursor: pointer;
         }
         .rr-controller__btns button:active {
-          background: #e0e1fe;
+          background: #ff6f61;
         }
         .rr-controller__btns button.active {
           color: #fff;
-          background: rgb(73, 80, 246);
+          background: #ff6f61;
         }
         .rr-controller__btns button:disabled {
           cursor: not-allowed;
