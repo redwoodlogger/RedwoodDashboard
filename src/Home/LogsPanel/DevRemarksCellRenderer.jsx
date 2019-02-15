@@ -20,12 +20,10 @@ const DevRemarksCellRenderer = props => {
         margin-top: 0.375em;
       `}
     >
-      <Link
-        to={`/comments/${value.id}`}
+      <div
         css={css`
           color: teal;
           font-size: 1.5em;
-          cursor: pointer;
           text-decoration: none;
           display: flex;
         `}
@@ -45,7 +43,7 @@ const DevRemarksCellRenderer = props => {
           {value.devRemarkCount}
         </div>
         <IoIosArrowForward />
-      </Link>
+      </div>
     </div>
   );
 };

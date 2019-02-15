@@ -109,10 +109,10 @@ const Logs = props => {
   return (
     <div
       className="ag-theme-balham"
-      style={{
-        height: "500px",
-        width: "100%"
-      }}
+      css={css`
+        height: 500px;
+        width: 100%;
+      `}
     >
       <AgGridReact
         columnDefs={columnDefs}
