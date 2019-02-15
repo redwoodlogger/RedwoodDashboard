@@ -11,6 +11,7 @@ export const Group = props => {
       css={css`
         background: white;
         border-top: 1px solid #e5e5e5;
+        font-family: "Source Sans Pro";
       `}
       {...props}
     >
@@ -28,7 +29,16 @@ Group.propTypes = {
 
 export const GroupTitle = props => {
   const { children } = props;
-  return <p>{children}</p>;
+  return (
+    <p
+      css={css`
+        font-weight: 600;
+        font-size: 13pt;
+      `}
+    >
+      {children}
+    </p>
+  );
 };
 
 GroupTitle.propTypes = {
