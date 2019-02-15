@@ -109,7 +109,7 @@ PanelTop.propTypes = {
 };
 
 const Logs = props => {
-  const { columnDefs, rowData, onGridReady } = props;
+  const { columnDefs, logsData, onGridReady } = props;
   return (
     <div
       className="ag-theme-balham"
@@ -120,7 +120,7 @@ const Logs = props => {
     >
       <AgGridReact
         columnDefs={columnDefs}
-        rowData={rowData}
+        rowData={logsData}
         onGridReady={onGridReady}
         floatingFilter
         rowSelection="multiple"
@@ -136,7 +136,7 @@ Logs.propTypes = {
       field: PropTypes.string
     })
   ).isRequired,
-  rowData: PropTypes.arrayOf(
+  logsData: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       date: PropTypes.string.isRequired,
@@ -155,7 +155,7 @@ const LogsPanel = props => {
     }, 500);
   }
 
-  const { systems, currentSystem, rowData } = props;
+  const { systems, currentSystem, logsData } = props;
   return (
     <section
       css={css`
@@ -174,7 +174,7 @@ const LogsPanel = props => {
       </PanelTop>
       <Logs
         columnDefs={COLUMN_DEFS}
-        rowData={rowData}
+        logsData={logsData}
         onGridReady={onGridReady}
       />
     </section>
@@ -182,7 +182,7 @@ const LogsPanel = props => {
 };
 
 LogsPanel.propTypes = {
-  rowData: PropTypes.arrayOf(
+  logsData: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       date: PropTypes.string.isRequired,

@@ -14,7 +14,6 @@ class Panels extends Component {
     super(props);
 
     const colourMapping = new Map();
-    const rowData = LogsData;
 
     const allTags = LogsData.map(entry => entry.tags);
     const numColours = Object.keys(ColourData).length;
@@ -32,7 +31,7 @@ class Panels extends Component {
 
     // console.log(colourMapping);
 
-    rowData.forEach(value => {
+    LogsData.forEach(value => {
       let colourString = "";
       let colour = "";
       const tags = value.tags.split(";");
@@ -49,14 +48,14 @@ class Panels extends Component {
     });
 
     this.state = {
-      rowData,
+      logsData: LogsData,
       systems: ["System 1", "System 2", "System 3"],
       currentSystem: "System 1"
     };
   }
 
   render() {
-    const { rowData, systems, currentSystem } = this.state;
+    const { logsData, systems, currentSystem } = this.state;
 
     return (
       <div
@@ -67,7 +66,7 @@ class Panels extends Component {
         `}
       >
         <LogsPanel
-          rowData={rowData}
+          logsData={logsData}
           systems={systems}
           currentSystem={currentSystem}
         />
