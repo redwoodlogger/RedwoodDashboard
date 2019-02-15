@@ -81,65 +81,44 @@ Details.propTypes = {
   ]).isRequired
 };
 
-class RightPanel extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      comments: [],
-      commentInput: ""
-    };
+const RightPanel = props => {
+  const { currentRow } = props;
+  let hashtags = [];
+  if (currentRow) {
+    let {
+      obj: { colours, tags }
+    } = currentRow;
+    tags = tags.split(";");
+    tags = tags.map(tag => tag.trim());
+    colours = colours.split(";");
+    hashtags = tags.map((tag, index) => ({ tag, color: colours[index] }));
   }
 
-  handleChange = event => {
-    const { value } = event.target;
-    this.setState({
-      commentInput: value
-    });
-  };
-
-  handleSubmit = event => {
-    event.preventDefault();
-    const { commentInput } = this.state;
-    if (commentInput) {
-      this.setState(prevState => ({
-        comments: [...prevState.comments, prevState.commentInput],
-        commentInput: ""
-      }));
-    }
-  };
-
-  render() {
-    const { commentInput, comments } = this.state;
-    return (
-      <aside
-        css={css`
-          background: #f6f6f6;
-          width: 25em;
-          display: flex;
-          flex-direction: column;
-          border-left: 1px solid #e5e5e5;
-          font-family: "Lato";
-        `}
-      >
-        <Details>
-          <p
-            css={css`
-              margin-bottom: 1em;
-            `}
-          >
-            Bug Report #123459
-          </p>
-          <Hashtags />
-          <Comments commentList={comments} />
-        </Details>
-        <CommentBox
-          eventStateCommentInput={commentInput}
-          eventHandleChange={this.handleChange}
-          eventHandleSubmit={this.handleSubmit}
-        />
-      </aside>
-    );
-  }
-}
+  return (
+    <aside
+      css={css`
+        background: #f6f6f6;
+        width: 25em;
+        display: flex;
+        flex-direction: column;
+        border-left: 1px solid #e5e5e5;
+        font-family: "Source Sans Pro";
+      `}
+    >
+      <Details>
+        <p
+          css={css`
+            margin-bottom: 1em;
+          `}
+        >
+          Bug Report #123459
+        </p>
+        <Hashtags hashtags={hashtags} />
+        <Comments />
+      </Details>
+      <CommentBox />
+    </aside>
+  );
+};
 
 export default RightPanel;

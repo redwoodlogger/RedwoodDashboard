@@ -39,7 +39,11 @@ const COLUMN_DEFS = [
   {
     headerName: "Tags",
     autoHeight: true,
-    field: "tags",
+    //    field: "tags",
+    valueGetter: params => ({
+      tags: params.data.tags,
+      obj: params.data.obj
+    }),
     filter: "agTextColumnFilter",
     width: 300,
     cellRendererFramework: TagsCellRenderer
@@ -105,7 +109,8 @@ PanelTop.propTypes = {
 };
 
 const Logs = props => {
-  const { columnDefs, rowData, onGridReady } = props;
+  const { columnDefs, logsData, onGridReady, rowClickCallback } = props;
+  const gridOptions = { onRowSelected: rowClickCallback };
   return (
     <div
       className="ag-theme-balham"
@@ -116,8 +121,9 @@ const Logs = props => {
     >
       <AgGridReact
         columnDefs={columnDefs}
-        rowData={rowData}
+        rowData={logsData}
         onGridReady={onGridReady}
+        gridOptions={gridOptions}
         floatingFilter
         rowSelection="multiple"
       />
@@ -132,7 +138,7 @@ Logs.propTypes = {
       field: PropTypes.string
     })
   ).isRequired,
-  rowData: PropTypes.arrayOf(
+  logsData: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       date: PropTypes.string.isRequired,
@@ -141,7 +147,8 @@ Logs.propTypes = {
       devRemarkCount: PropTypes.number.isRequired
     })
   ).isRequired,
-  onGridReady: PropTypes.func.isRequired
+  onGridReady: PropTypes.func.isRequired,
+  rowClickCallback: PropTypes.func.isRequired
 };
 
 const LogsPanel = props => {
@@ -151,7 +158,7 @@ const LogsPanel = props => {
     }, 500);
   }
 
-  const { systems, currentSystem, rowData } = props;
+  const { systems, currentSystem, logsData, rowClickCallback } = props;
   return (
     <section
       css={css`
@@ -170,15 +177,16 @@ const LogsPanel = props => {
       </PanelTop>
       <Logs
         columnDefs={COLUMN_DEFS}
-        rowData={rowData}
+        logsData={logsData}
         onGridReady={onGridReady}
+        rowClickCallback={rowClickCallback}
       />
     </section>
   );
 };
 
 LogsPanel.propTypes = {
-  rowData: PropTypes.arrayOf(
+  logsData: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       date: PropTypes.string.isRequired,
@@ -188,6 +196,7 @@ LogsPanel.propTypes = {
     })
   ).isRequired,
   systems: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-  currentSystem: PropTypes.string.isRequired
+  currentSystem: PropTypes.string.isRequired,
+  rowClickCallback: PropTypes.func.isRequired
 };
 export default LogsPanel;
