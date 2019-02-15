@@ -2,7 +2,6 @@
 import React, { Component } from "react";
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
-import PropTypes from "prop-types";
 import Navbar from "../Navbar";
 import LogsPanel from "./LogsPanel/LogsPanel";
 import { LogsData } from "./LogsPanel/LogsData";
@@ -50,12 +49,21 @@ class Panels extends Component {
     this.state = {
       logsData: LogsData,
       systems: ["System 1", "System 2", "System 3"],
-      currentSystem: "System 1"
+      currentSystem: "System 1",
+      currentRow: undefined
     };
   }
 
+  rowClickCallback = event => {
+    if (event.node.selected) {
+      const { rowIndex } = event;
+      const { logsData } = this.state;
+      this.setState({ currentRow: logsData[rowIndex] });
+    }
+  };
+
   render() {
-    const { logsData, systems, currentSystem } = this.state;
+    const { logsData, systems, currentSystem, currentRow } = this.state;
 
     return (
       <div
@@ -69,8 +77,9 @@ class Panels extends Component {
           logsData={logsData}
           systems={systems}
           currentSystem={currentSystem}
+          rowClickCallback={this.rowClickCallback}
         />
-        <RightPanel />
+        <RightPanel currentRow={currentRow} />
       </div>
     );
   }

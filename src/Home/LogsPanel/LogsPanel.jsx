@@ -109,7 +109,8 @@ PanelTop.propTypes = {
 };
 
 const Logs = props => {
-  const { columnDefs, logsData, onGridReady } = props;
+  const { columnDefs, logsData, onGridReady, rowClickCallback } = props;
+  const gridOptions = { onRowSelected: rowClickCallback };
   return (
     <div
       className="ag-theme-balham"
@@ -122,6 +123,7 @@ const Logs = props => {
         columnDefs={columnDefs}
         rowData={logsData}
         onGridReady={onGridReady}
+        gridOptions={gridOptions}
         floatingFilter
         rowSelection="multiple"
       />
@@ -145,7 +147,8 @@ Logs.propTypes = {
       devRemarkCount: PropTypes.number.isRequired
     })
   ).isRequired,
-  onGridReady: PropTypes.func.isRequired
+  onGridReady: PropTypes.func.isRequired,
+  rowClickCallback: PropTypes.func.isRequired
 };
 
 const LogsPanel = props => {
@@ -155,7 +158,7 @@ const LogsPanel = props => {
     }, 500);
   }
 
-  const { systems, currentSystem, logsData } = props;
+  const { systems, currentSystem, logsData, rowClickCallback } = props;
   return (
     <section
       css={css`
@@ -176,6 +179,7 @@ const LogsPanel = props => {
         columnDefs={COLUMN_DEFS}
         logsData={logsData}
         onGridReady={onGridReady}
+        rowClickCallback={rowClickCallback}
       />
     </section>
   );
@@ -192,6 +196,7 @@ LogsPanel.propTypes = {
     })
   ).isRequired,
   systems: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-  currentSystem: PropTypes.string.isRequired
+  currentSystem: PropTypes.string.isRequired,
+  rowClickCallback: PropTypes.func.isRequired
 };
 export default LogsPanel;

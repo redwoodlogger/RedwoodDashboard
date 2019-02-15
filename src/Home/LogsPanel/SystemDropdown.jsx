@@ -90,9 +90,10 @@ class SystemDropdown extends Component {
               list-style-type: none;
             `}
           >
-            {systems.map((system, i) => (
+            {systems.map((system, index) => (
               <li
-                key={i}
+                // eslint-disable-next-line react/no-array-index-key
+                key={index}
                 css={css`
                   text-decoration: none;
                   color: #808080;

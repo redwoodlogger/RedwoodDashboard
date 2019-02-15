@@ -5,11 +5,11 @@ import PropTypes from "prop-types";
 import { css, jsx } from "@emotion/core";
 
 const Hashtag = props => {
-  const { children } = props;
+  const { children, color } = props;
   return (
     <button
       css={css`
-        background: #bf6ebf;
+        background: ${color};
         padding: 0.2em 0.5em 0.2em 0.5em;
         margin: 0 0.2em 0.4em 0;
         border: 1px transparent;
@@ -38,7 +38,8 @@ const Hashtag = props => {
 };
 
 Hashtag.propTypes = {
-  children: PropTypes.string.isRequired
+  children: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired
 };
 
 export default Hashtag;
