@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import { React, Component } from "react";
+import React from "react";
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
 import PropTypes from "prop-types";
@@ -7,11 +7,7 @@ import Button from "../shared/Button";
 import Hashtags from "./Hashtags";
 import Comments from "./Comments";
 
-const CommentBox = ({
-  eventStateCommentInput,
-  eventHandleChange,
-  eventHandleSubmit
-}) => (
+const CommentBox = () => (
   <section
     css={css`
       background: white;
@@ -29,8 +25,6 @@ const CommentBox = ({
       `}
     >
       <textarea
-        value={eventStateCommentInput}
-        onChange={eventHandleChange}
         css={css`
           border: 1px solid #e5e5e5;
           width: 24em;
@@ -47,17 +41,11 @@ const CommentBox = ({
           justify-content: end;
         `}
       >
-        <Button onClick={eventHandleSubmit}>Submit</Button>
+        <Button>Submit</Button>
       </div>
     </div>
   </section>
 );
-
-CommentBox.propTypes = {
-  eventStateCommentInput: PropTypes.string.isRequired,
-  eventHandleChange: PropTypes.func.isRequired,
-  eventHandleSubmit: PropTypes.func.isRequired
-};
 
 const Details = props => {
   const { children } = props;
