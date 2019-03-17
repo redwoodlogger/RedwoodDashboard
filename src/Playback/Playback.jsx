@@ -3,11 +3,15 @@ import React from "react";
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
 import PropTypes from "prop-types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLessThan } from "@fortawesome/free-solid-svg-icons";
+
 import Navbar from "../Navbar";
 import Button from "../shared/Button";
 import Details from "./Details";
 import UserActions from "./UserActions";
 import Network from "./Network";
+import Console from "./Console";
 
 const PlaybackPanel = props => {
   const { children } = props;
@@ -40,7 +44,26 @@ const LeftPanel = () => (
     `}
   >
     <div>
-      <Button>Back</Button>
+      <Button
+        css={css`
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 5px;
+          margin: 5px 0 5px 15px;
+          width: 70px;
+          font-size: 11pt;
+          font-weight: 500;
+          border-radius: 10px;
+
+          :focus {
+            outline: 0;
+          }
+        `}
+      >
+        <FontAwesomeIcon icon={faLessThan} />
+        &nbsp;&nbsp;Back
+      </Button>
     </div>
     <Details />
     <UserActions />
@@ -48,7 +71,29 @@ const LeftPanel = () => (
   </section>
 );
 
-const MainPanel = () => <section>Hello there</section>;
+const MainPanel = () => (
+  <section
+    css={css`
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    `}
+  >
+    <div
+      css={css`
+        flex: 1;
+      `}
+    >
+      <div
+        id="viewer"
+        css={css`
+          height: 100%;
+        `}
+      />
+    </div>
+    <Console />
+  </section>
+);
 
 const Playback = () => (
   <div

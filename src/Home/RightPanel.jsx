@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React from "react";
+import { React, Component } from "react";
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
 import PropTypes from "prop-types";
@@ -7,7 +7,11 @@ import Button from "../shared/Button";
 import Hashtags from "./Hashtags";
 import Comments from "./Comments";
 
-const CommentBox = () => (
+const CommentBox = ({
+  eventStateCommentInput,
+  eventHandleChange,
+  eventHandleSubmit
+}) => (
   <section
     css={css`
       background: white;
@@ -25,6 +29,8 @@ const CommentBox = () => (
       `}
     >
       <textarea
+        value={eventStateCommentInput}
+        onChange={eventHandleChange}
         css={css`
           border: 1px solid #e5e5e5;
           width: 24em;
@@ -41,11 +47,17 @@ const CommentBox = () => (
           justify-content: end;
         `}
       >
-        <Button>Submit</Button>
+        <Button onClick={eventHandleSubmit}>Submit</Button>
       </div>
     </div>
   </section>
 );
+
+CommentBox.propTypes = {
+  eventStateCommentInput: PropTypes.string.isRequired,
+  eventHandleChange: PropTypes.func.isRequired,
+  eventHandleSubmit: PropTypes.func.isRequired
+};
 
 const Details = props => {
   const { children } = props;
@@ -69,47 +81,80 @@ Details.propTypes = {
   ]).isRequired
 };
 
-const RightPanel = props => {
-  const { currentRow } = props;
-  console.log(currentRow);
-  let hashtags = [];
-  if (currentRow) {
-    let {
-      obj: { colours, tags }
-    } = currentRow;
-    tags = tags.split(";");
-    tags = tags.map(tag => tag.trim());
-    colours = colours.split(";");
-    hashtags = tags.map((tag, index) => ({ tag, color: colours[index] }));
+class RightPanel extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      comments: [],
+      commentInput: ""
+    };
   }
 
-  return (
-    <aside
-      css={css`
-        background: #f6f6f6;
-        width: 25em;
-        display: flex;
-        flex-direction: column;
-        border-left: 1px solid #e5e5e5;
-        font-family: "Source Sans Pro";
-      `}
-    >
-      <Details>
-        <p
-          css={css`
-            margin-bottom: 1em;
-          `}
-        >
-          Bug Report #123459
-        </p>
-        <Hashtags hashtags={hashtags} />
-        <Comments />
-      </Details>
-      <CommentBox />
-    </aside>
-  );
-};
+  handleChange = event => {
+    const { value } = event.target;
+    this.setState({
+      commentInput: value
+    });
+  };
 
+  handleSubmit = event => {
+    event.preventDefault();
+    const { commentInput } = this.state;
+    if (commentInput) {
+      this.setState(prevState => ({
+        comments: [...prevState.comments, prevState.commentInput],
+        commentInput: ""
+      }));
+    }
+  };
+
+  render() {
+    const { commentInput, comments } = this.state;
+    const { currentRow } = this.props;
+    console.log(currentRow);
+    let hashtags = [];
+    if (currentRow) {
+      let {
+        obj: { colours, tags }
+      } = currentRow;
+      tags = tags.split(";");
+      tags = tags.map(tag => tag.trim());
+      colours = colours.split(";");
+      hashtags = tags.map((tag, index) => ({ tag, color: colours[index] }));
+    }
+    return (
+      <aside
+        css={css`
+          background: #f6f6f6;
+          width: 25em;
+          display: flex;
+          flex-direction: column;
+          border-left: 1px solid #e5e5e5;
+          font-family: "Lato";
+        `}
+      >
+        <Details>
+          <p
+            css={css`
+              margin-bottom: 1em;
+            `}
+          >
+            Bug Report #123459
+          </p>
+          <Hashtags hashtags={hashtags} />
+          <Comments commentList={comments} />
+        </Details>
+        <CommentBox
+          eventStateCommentInput={commentInput}
+          eventHandleChange={this.handleChange}
+          eventHandleSubmit={this.handleSubmit}
+        />
+      </aside>
+    );
+  }
+}
+  
+  
 RightPanel.defaultProps = {
   currentRow: undefined
 };

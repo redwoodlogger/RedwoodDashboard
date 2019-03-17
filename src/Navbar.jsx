@@ -3,7 +3,6 @@ import React from "react";
 import PropTypes from "prop-types";
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import UserBubble from "./shared/UserBubble";
 
 const UserAccount = props => {
@@ -44,17 +43,24 @@ UserAccount.propTypes = {
 const Logo = props => {
   const { children } = props;
   return (
-    <p
+    <a
+      href="/"
       css={css`
-        color: white;
-        margin: 0 0 0 4em;
-        font-family: "Roboto";
-        font-weight: bold;
-        letter-spacing: 0.5em;
+        text-decoration: none;
       `}
     >
-      {children}
-    </p>
+      <p
+        css={css`
+          color: white;
+          margin: 0 0 0 4em;
+          font-family: "Roboto";
+          font-weight: bold;
+          letter-spacing: 0.5em;
+        `}
+      >
+        {children}
+      </p>
+    </a>
   );
 };
 
