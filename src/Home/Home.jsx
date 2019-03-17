@@ -2,25 +2,67 @@
 import React, { Component } from "react";
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
-import PropTypes from "prop-types";
 import Navbar from "../Navbar";
 import LogsPanel from "./LogsPanel/LogsPanel";
 import { LogsData } from "./LogsPanel/LogsData";
 import RightPanel from "./RightPanel";
+import { ColourData } from "./LogsPanel/ColourData";
 
 class Panels extends Component {
   constructor(props) {
     super(props);
 
+    const colourMapping = new Map();
+
+    const allTags = LogsData.map(entry => entry.tags);
+    const numColours = Object.keys(ColourData).length;
+    let tagCount = 0;
+
+    allTags.forEach(value => {
+      const tags = value.split(";");
+      tags.forEach(tag => {
+        if (!colourMapping.has(tag.trim())) {
+          colourMapping.set(tag.trim(), ColourData[tagCount % numColours]);
+          tagCount += 1;
+        }
+      });
+    });
+
+    LogsData.forEach(value => {
+      let colourString = "";
+      let colour = "";
+      const tags = value.tags.split(";");
+      tags.forEach(tag => {
+        colour = colourMapping.get(tag.trim());
+        colourString += colour;
+        colourString += ";";
+      });
+      colourString = colourString.substring(0, colourString.length - 1);
+      const obj = {};
+      obj.tags = value.tags;
+      obj.colours = colourString;
+      value.obj = obj;
+    });
+
     this.state = {
-      rowData: LogsData,
+      logsData: LogsData,
       systems: ["System 1", "System 2", "System 3"],
-      currentSystem: "System 1"
+      currentSystem: "System 1",
+      currentRow: undefined
     };
   }
 
+  rowClickCallback = event => {
+    if (event.node.selected) {
+      const { rowIndex } = event;
+      const { logsData } = this.state;
+      this.setState({ currentRow: logsData[rowIndex] });
+    }
+  };
+
   render() {
-    const { rowData, systems, currentSystem } = this.state;
+    const { logsData, systems, currentSystem, currentRow } = this.state;
+
     return (
       <div
         css={css`
@@ -30,11 +72,12 @@ class Panels extends Component {
         `}
       >
         <LogsPanel
-          rowData={rowData}
+          logsData={logsData}
           systems={systems}
           currentSystem={currentSystem}
+          rowClickCallback={this.rowClickCallback}
         />
-        <RightPanel />
+        <RightPanel currentRow={currentRow} />
       </div>
     );
   }

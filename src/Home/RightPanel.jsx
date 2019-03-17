@@ -110,6 +110,18 @@ class RightPanel extends Component {
 
   render() {
     const { commentInput, comments } = this.state;
+    const { currentRow } = this.props;
+    console.log(currentRow);
+    let hashtags = [];
+    if (currentRow) {
+      let {
+        obj: { colours, tags }
+      } = currentRow;
+      tags = tags.split(";");
+      tags = tags.map(tag => tag.trim());
+      colours = colours.split(";");
+      hashtags = tags.map((tag, index) => ({ tag, color: colours[index] }));
+    }
     return (
       <aside
         css={css`
@@ -129,7 +141,7 @@ class RightPanel extends Component {
           >
             Bug Report #123459
           </p>
-          <Hashtags />
+          <Hashtags hashtags={hashtags} />
           <Comments commentList={comments} />
         </Details>
         <CommentBox
@@ -141,5 +153,24 @@ class RightPanel extends Component {
     );
   }
 }
+  
+  
+RightPanel.defaultProps = {
+  currentRow: undefined
+};
+
+RightPanel.propTypes = {
+  currentRow: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    date: PropTypes.string.isRequired,
+    devRemarkCount: PropTypes.number.isRequired,
+    obj: PropTypes.shape({
+      colours: PropTypes.string,
+      tags: PropTypes.string
+    }),
+    submitter: PropTypes.string.isRequired,
+    tags: PropTypes.string
+  })
+};
 
 export default RightPanel;
