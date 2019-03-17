@@ -27,14 +27,28 @@ record({
   checkoutEveryNms: 2 * 60 * 1000 // checkout every 2 minutes
 });
 
+const exportJSON = events => {
+  const tempEl = document.createElement("a");
+  tempEl.href = `data:application/json;charset=utf-8,${encodeURIComponent(
+    events
+  )}`;
+  tempEl.target = "_blank";
+  tempEl.download = `events-${Date.now()}.json`;
+  tempEl.click();
+};
+
 const replay = () => {
-  new rrwebPlayer({
-    target: document.querySelector("#viewer"), // customizable root element
-    data: {
-      events: eventsMatrix[eventsMatrix.length - 1],
-      autoPlay: true
-    }
-  });
+  // console.log(eventsMatrix[eventsMatrix.length - 1]);
+  exportJSON(JSON.stringify(eventsMatrix[eventsMatrix.length - 1]));
+  // console.log(JSON.stringify(eventsMatrix[eventsMatrix.length - 1]))
+  
+  // new rrwebPlayer({
+  //   target: document.querySelector("#viewer"), // customizable root element
+  //   data: {
+  //     events: eventsMatrix[eventsMatrix.length - 1],
+  //     autoPlay: true
+  //   }
+  // });
 };
 
 library.add(faAngleDown);
@@ -315,7 +329,6 @@ const App = () => (
         }
       `}
     />
-    <button onClick={replay}>replay</button>
     <Switch>
       <Route exact path="/" component={Home} />
       <Route path="/playback" component={Playback} />

@@ -11,7 +11,7 @@ const ActionCellRenderer = props => {
   const { value } = props;
   return (
     <Link
-      to={`/view/${value}`}
+      to={`/playback/${value}`}
       css={css`
         color: red;
         font-size: 1.5em;
