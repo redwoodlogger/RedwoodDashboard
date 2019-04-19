@@ -34,14 +34,16 @@ const exportJSON = events => {
   )}`;
   tempEl.target = "_blank";
   tempEl.download = `events-${Date.now()}.json`;
+  document.body.appendChild(tempEl);
   tempEl.click();
+  document.body.removeChild(tempEl);
 };
 
 const replay = () => {
   // console.log(eventsMatrix[eventsMatrix.length - 1]);
   exportJSON(JSON.stringify(eventsMatrix[eventsMatrix.length - 1]));
   // console.log(JSON.stringify(eventsMatrix[eventsMatrix.length - 1]))
-  
+
   // new rrwebPlayer({
   //   target: document.querySelector("#viewer"), // customizable root element
   //   data: {
