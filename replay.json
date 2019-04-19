@@ -2,7 +2,7 @@
   {
     "type": 4,
     "data": {
-      "href": "http://localhost:3000/",
+      "href": "http://localhost:8080/",
       "width": 868,
       "height": 698
     },
@@ -111,7 +111,7 @@
                     "childNodes": [
                       {
                         "type": 3,
-                        "textContent": ".App {\r\n  text-align: center;\r\n  font-family: \"Segoe UI\", \"Helvetica Neue\";\r\n}\r\n\r\n.App-header {\r\n  position: relative;\r\n  margin: 0 auto;\r\n  padding: 3em 1em;\r\n  color: #fff;\r\n  text-align: center;\r\n  background: url('http://localhost:3000/static/media/banner.a1f56e2b.jpg') no-repeat center center;\r\n  background-size: cover;\r\n}\r\n\r\n.App-title {\r\n  font-size: 3em;\r\n}\r\n\r\n.App-intro {\r\n  font-size: large;\r\n}\r\n\r\n.App-search {\r\n  max-width: 400px;\r\n  margin: auto;\r\n}\r\n\r\n.form-control {\r\n  border-radius: 0px;\r\n}\r\n\r\n.button {\r\n  position:fixed;\r\n\twidth:60px;\r\n\theight:60px;\r\n\ttop:20px;\r\n\tright:20px;\r\n\tbackground-color:rgb(214, 95, 40);\r\n\tcolor:#FFF;\r\n  border-radius:50px;\r\n  border: 0px;\r\n  text-align:center;\r\n  font-size: 1em;\r\n}",
+                        "textContent": ".App {\r\n  text-align: center;\r\n  font-family: \"Segoe UI\", \"Helvetica Neue\";\r\n}\r\n\r\n.App-header {\r\n  position: relative;\r\n  margin: 0 auto;\r\n  padding: 3em 1em;\r\n  color: #fff;\r\n  text-align: center;\r\n  background: url('http://localhost:8080/banner.jpg') no-repeat center center;\r\n  background-size: cover;\r\n}\r\n\r\n.App-title {\r\n  font-size: 3em;\r\n}\r\n\r\n.App-intro {\r\n  font-size: large;\r\n}\r\n\r\n.App-search {\r\n  max-width: 400px;\r\n  margin: auto;\r\n}\r\n\r\n.form-control {\r\n  border-radius: 0px;\r\n}\r\n\r\n.button {\r\n  position:fixed;\r\n\twidth:60px;\r\n\theight:60px;\r\n\ttop:20px;\r\n\tright:20px;\r\n\tbackground-color:rgb(214, 95, 40);\r\n\tcolor:#FFF;\r\n  border-radius:50px;\r\n  border: 0px;\r\n  text-align:center;\r\n  font-size: 1em;\r\n}",
                         "isStyle": true,
                         "id": 16
                       }
@@ -490,7 +490,7 @@
                     "tagName": "script",
                     "attributes": {
                       "type": "text/javascript",
-                      "src": "http://localhost:3000/static/js/bundle.js"
+                      "src": "http://localhost:8080/static/js/bundle.js"
                     },
                     "childNodes": [],
                     "id": 61
@@ -739,7 +739,7 @@
             "type": 2,
             "tagName": "img",
             "attributes": {
-              "src": "1.jpg",
+              "src": "http://localhost:8080/1.jpg",
               "alt": "Pictured: The cover for the book Advanced Engineering Chemistry.",
               "class": "bookCover"
             },
@@ -795,7 +795,7 @@
             "type": 2,
             "tagName": "img",
             "attributes": {
-              "src": "C:\\Users\\Mervyn\\Documents\\Software Projects\\Redwood\\src\\2.jpg",
+              "src": "http://localhost:8080/2.jpg",
               "alt": "Pictured: The cover for the book Pocket Flora of the Redwood Forest.",
               "class": "bookCover"
             },
@@ -851,7 +851,7 @@
             "type": 2,
             "tagName": "img",
             "attributes": {
-              "src": "C:\\Users\\Mervyn\\Documents\\Software Projects\\Redwood\\src\\3.jpg",
+              "src": "http://localhost:8080/3.jpg",
               "alt": "Pictured: The cover for the book Redwood Curtain.",
               "class": "bookCover"
             },
@@ -907,7 +907,7 @@
             "type": 2,
             "tagName": "img",
             "attributes": {
-              "src": "C:\\Users\\Mervyn\\Documents\\Software Projects\\Redwood\\src\\4.jpg",
+              "src": "http://localhost:8080/4.jpg",
               "alt": "Pictured: The cover for the book Redwood.",
               "class": "bookCover"
             },
@@ -963,7 +963,7 @@
             "type": 2,
             "tagName": "img",
             "attributes": {
-              "src": "http://localhost:3000/5.jpg",
+              "src": "http://localhost:8080/5.jpg",
               "alt": "Pictured: The cover for the book Redwood National Park (N.P.), General Management Plan (GMP).",
               "class": "bookCover"
             },
@@ -1019,7 +1019,7 @@
             "type": 2,
             "tagName": "img",
             "attributes": {
-              "src": "http://localhost:3000/6.jpg",
+              "src": "http://localhost:8080/6.jpg",
               "alt": "Pictured: The cover for the book Redwood National and State Parks, General Management Plan.",
               "class": "bookCover"
             },
@@ -1075,7 +1075,7 @@
             "type": 2,
             "tagName": "img",
             "attributes": {
-              "src": "http://localhost:3000/7.jpg",
+              "src": "http://localhost:8080/7.jpg",
               "alt": "Pictured: The cover for the book Port of Redwood City Levee Project.",
               "class": "bookCover"
             },
@@ -1131,7 +1131,7 @@
             "type": 2,
             "tagName": "img",
             "attributes": {
-              "src": "http://localhost:3000/8.jpg",
+              "src": "http://localhost:8080/8.jpg",
               "alt": "Pictured: The cover for the book Redwood.",
               "class": "bookCover"
             },
@@ -1187,7 +1187,7 @@
             "type": 2,
             "tagName": "img",
             "attributes": {
-              "src": "http://localhost:3000/9.jpg",
+              "src": "http://localhost:8080/9.jpg",
               "alt": "Pictured: The cover for the book Foothill Blvd, Rogue River and Redwood Hwy, Josephine County.",
               "class": "bookCover"
             },
@@ -1243,7 +1243,7 @@
             "type": 2,
             "tagName": "img",
             "attributes": {
-              "src": "http://localhost:3000/10.jpg",
+              "src": "http://localhost:8080/10.jpg",
               "alt": "Pictured: The cover for the book Redwood City.",
               "class": "bookCover"
             },

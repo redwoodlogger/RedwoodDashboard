@@ -30,9 +30,16 @@ module.exports = {
         use: ["style-loader", "css-loader"]
       },
       {
-        test: /\.jpg$/,
-        exclude: /node_modules/,
-        loader: "file-loader?name=[name].[ext]"
+        test: /\.(jpg|png|gif|svg|pdf|ico)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+              outputPath: "/"
+            }
+          }
+        ]
       }
     ]
   },
