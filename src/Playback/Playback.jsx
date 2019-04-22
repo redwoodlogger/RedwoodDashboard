@@ -69,7 +69,6 @@ const LeftPanel = props => (
       </Button>
     </div>
     <Details />
-    <UserActions />
     <Console msges={msges.filter(msg => msg.timeStamp < props.currentTime)} />
   </section>
 );
@@ -120,41 +119,30 @@ const msges = [
   },
   {
     msg: `Warning: Each child in a list should have a unique \"key\" prop.
-      Check the render method of \`Gallery\`.See https://fb.me/react-warning-keys for more information.
-      in div(at Gallery.js: 15)
-      in Gallery(at App.js: 133)
-      in div(at App.js: 132)
-      in div(at App.js: 78)
-      in App(at src / index.js: 7)`,
-    lineInfo: "index.js:2178",
+      Check the render method of \`Gallery\`.See https://fb.me/react-warning-keys for more information.`,
     type: "error",
-    timeStamp: 500
+    timeStamp: 6400
   },
   {
     msg: `Uncaught Invariant Violation: Expected \`onClick\` listener to be a function, instead got a value of \`string\` type.
-    at invariant(http://localhost:3000/static/js/bundle.js:34837:15)
-    at getListener (http://localhost:3000/static/js/bundle.js:35558:52)
-    at listenerAtPhase(http://localhost:3000/static/js/bundle.js:35839:10)
-    at accumulateDirectionalDispatches(http://localhost:3000/static/js/bundle.js:35862:18)
-    at traverseTwoPhase(http://localhost:3000/static/js/bundle.js:35782:5)
-    at accumulateTwoPhaseDispatchesSingle(http://localhost:3000/static/js/bundle.js:35878:5)
-    at forEachAccumulated(http://localhost:3000/static/js/bundle.js:35444:8)
-    at accumulateTwoPhaseDispatches(http://localhost:3000/static/js/bundle.js:35910:3)
-    at Object.extractEvents(http://localhost:3000/static/js/bundle.js:39528:5)
-    at extractEvents(http://localhost:3000/static/js/bundle.js:35575:44)
-    at runExtractedEventsInBatch(http://localhost:3000/static/js/bundle.js:35605:16)
-    at handleTopLevel(http://localhost:3000/static/js/bundle.js:39608:5)
-    at batchedUpdates$1(http://localhost:3000/static/js/bundle.js:55221:12)
-    at batchedUpdates(http://localhost:3000/static/js/bundle.js:36933:12)
-    at dispatchEvent(http://localhost:3000/static/js/bundle.js:39687:5)
-    at http://localhost:3000/static/js/bundle.js:55272:14
-    at Object.unstable_runWithPriority(http://localhost:3000/static/js/bundle.js:70454:12)
-    at interactiveUpdates$1(http://localhost:3000/static/js/bundle.js:55271:22)
-    at interactiveUpdates(http://localhost:3000/static/js/bundle.js:36952:10)
-    at dispatchInteractiveEvent(http://localhost:3000/static/js/bundle.js:39664:3)`,
+    at invariant(http://localhost:3000/static/js/bundle.js:34837:15)`,
     lineInfo: "react-dom.development.js:55",
     type: "error",
-    timeStamp: 1000
+    timeStamp: 15500
+  },
+  {
+    msg: `Uncaught Invariant Violation: Expected \`onClick\` listener to be a function, instead got a value of \`string\` type.
+    at invariant(http://localhost:3000/static/js/bundle.js:34837:15)`,
+    lineInfo: "react-dom.development.js:55",
+    type: "error",
+    timeStamp: 16500
+  },
+  {
+    msg: `Uncaught Invariant Violation: Expected \`onClick\` listener to be a function, instead got a value of \`string\` type.
+    at invariant(http://localhost:3000/static/js/bundle.js:34837:15)`,
+    lineInfo: "react-dom.development.js:55",
+    type: "error",
+    timeStamp: 17000
   }
 ];
 const networkMsges = [

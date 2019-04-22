@@ -12,6 +12,7 @@ const ConsoleItem = props => {
         padding: 10px 10px 20px 20px;
         border-bottom: 1px solid #e5e5e5;
         white-space: pre-line;
+        word-break: break-word;
         ${type === "error" ? "background-color: #fff0f0; color: #ff5555;" : ""}
       `}
     >
