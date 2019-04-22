@@ -195,7 +195,6 @@ const App = () => (
         body,
         #index {
           margin: 0;
-          height: 100%;
         }
 
         /* Set all HTML elements to have border-box */
@@ -252,7 +251,7 @@ const App = () => (
         .rr-controller {
           background: #dcdcdc;
           padding: 20px;
-          flex: 1;
+          height: 80px;
           display: flex;
           flex-direction: column;
           justify-content: space-around;
@@ -276,7 +275,6 @@ const App = () => (
           /* cursor: pointer; */
         }
         .rr-progress__step {
-          height: 100%;
           position: absolute;
           left: 0;
           top: 0;
@@ -325,6 +323,9 @@ const App = () => (
           height: 100% !important;
           display: flex;
           flex-direction: column;
+        }
+        .rr-player__frame {
+          height: 410px !important;
         }
         .replayer-wrapper {
           transform: scale(0.58) translate(0%, -35%) !important;

@@ -10,6 +10,7 @@ const ConsoleItem = props => {
     <div
       css={css`
         padding: 10px 10px 20px 20px;
+        width: 350px;
         border-bottom: 1px solid #e5e5e5;
         white-space: pre-line;
         word-break: break-word;
@@ -27,7 +28,6 @@ const ConsoleItem = props => {
         {lineInfo}
       </div>
     </div>
-
   );
 };
 

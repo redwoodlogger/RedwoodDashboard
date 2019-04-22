@@ -14,7 +14,7 @@ const DevRemarksCellRenderer = props => {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100%;
+
         margin: auto 0;
         margin-top: 0.375em;
       `}
