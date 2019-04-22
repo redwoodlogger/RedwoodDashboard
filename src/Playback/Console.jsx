@@ -3,31 +3,38 @@ import React from "react";
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
 import { Group, GroupTitle } from "./shared/LeftPanelGroup";
-import ConsoleItem from "./ConsoleItem.jsx"
+import ConsoleItem from "./ConsoleItem.jsx";
 
 const Console = props => (
   <div
     css={css`
-        background: white;
-        border-top: 1px solid #e5e5e5;
-        font-family: "Source Sans Pro";
-        display:flex;
-        flex-direction: column;
-        flex: 1;
-      `}
-  >
-    <div css={css`
-        padding: 15px 15px 5px 15px;
-        flex: 0 0;
-      `}><GroupTitle>Console</GroupTitle></div>
-    <div
-    css={css`
-      flex: 1;
-      overflow-y: auto;
+      background: white;
       border-top: 1px solid #e5e5e5;
-      margin-top: 5px;
-    `}>
-      {props.msges.map(msg => <ConsoleItem msg={msg.msg} lineInfo={msg.lineInfo} type={msg.type}/>)}
+      font-family: "Source Sans Pro";
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    `}
+  >
+    <div
+      css={css`
+        padding: 15px 15px 5px 15px;
+      `}
+    >
+      <GroupTitle>Console</GroupTitle>
+    </div>
+    <div
+      css={css`
+        height: 471px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        border-top: 1px solid #e5e5e5;
+        margin-top: 5px;
+      `}
+    >
+      {props.msges.map(msg => (
+        <ConsoleItem msg={msg.msg} lineInfo={msg.lineInfo} type={msg.type} />
+      ))}
     </div>
   </div>
 );
