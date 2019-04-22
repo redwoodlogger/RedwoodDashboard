@@ -9,12 +9,14 @@ const ConsoleItem = props => {
   return (
     <div
       css={css`
-        padding: 10px 10px 10px 20px;
+        padding: 10px 10px 20px 20px;
         border-bottom: 1px solid #e5e5e5;
+        white-space: pre-line;
         ${type === "error" ? "background-color: #fff0f0; color: #ff5555;" : ""}
       `}
     >
       {msg}
+      <br />
       <div
         css={css`
           float: right;
@@ -24,6 +26,7 @@ const ConsoleItem = props => {
         {lineInfo}
       </div>
     </div>
+
   );
 };
 
