@@ -121,36 +121,182 @@ const msges = [
     msg: `Warning: Each child in a list should have a unique \"key\" prop.
       Check the render method of \`Gallery\`.See https://fb.me/react-warning-keys for more information.`,
     type: "error",
-    timeStamp: 6400
+    timeStamp: 6300
   },
   {
     msg: `Uncaught Invariant Violation: Expected \`onClick\` listener to be a function, instead got a value of \`string\` type.
-    at invariant(http://localhost:3000/static/js/bundle.js:34837:15)`,
+      at invariant(http://localhost:3000/static/js/bundle.js:34837:15)`,
     lineInfo: "react-dom.development.js:55",
     type: "error",
-    timeStamp: 15500
+    timeStamp: 15100
   },
   {
     msg: `Uncaught Invariant Violation: Expected \`onClick\` listener to be a function, instead got a value of \`string\` type.
-    at invariant(http://localhost:3000/static/js/bundle.js:34837:15)`,
+      at invariant(http://localhost:3000/static/js/bundle.js:34837:15)`,
     lineInfo: "react-dom.development.js:55",
     type: "error",
-    timeStamp: 16500
+    timeStamp: 16400
   },
   {
     msg: `Uncaught Invariant Violation: Expected \`onClick\` listener to be a function, instead got a value of \`string\` type.
-    at invariant(http://localhost:3000/static/js/bundle.js:34837:15)`,
+      at invariant(http://localhost:3000/static/js/bundle.js:34837:15)`,
     lineInfo: "react-dom.development.js:55",
     type: "error",
-    timeStamp: 17000
+    timeStamp: 17100
+  },
+  {
+    msg: `Uncaught Invariant Violation: Expected \`onClick\` listener to be a function, instead got a value of \`string\` type.
+      at invariant(http://localhost:3000/static/js/bundle.js:34837:15)`,
+    lineInfo: "react-dom.development.js:55",
+    type: "error",
+    timeStamp: 17300
   }
 ];
 const networkMsges = [
   {
-
-    timeStamp: 2000
+    msg: `Request URL: http://localhost:3000/1.jpg
+      Request Method: GET
+      Status Code: 304 Not Modified
+      Remote Address: 127.0.0.1:3000
+      Referrer Policy: no-referrer-when-downgrade`,
+    timeStamp: 6300
   },
-  { msg: "Testing message 2", timeStamp: 7000 }
+  {
+    msg: `Request URL: http://localhost:3000/2.jpg
+      Request Method: GET
+      Status Code: 304 Not Modified
+      Remote Address: 127.0.0.1:3000
+      Referrer Policy: no-referrer-when-downgrade`,
+    timeStamp: 6300
+  },
+  {
+    msg: `Request URL: http://localhost:3000/3.jpg
+      Request Method: GET
+      Status Code: 304 Not Modified
+      Remote Address: 127.0.0.1:3000
+      Referrer Policy: no-referrer-when-downgrade`,
+    timeStamp: 6300
+  },
+  {
+    msg: `Request URL: http://localhost:3000/4.jpg
+      Request Method: GET
+      Status Code: 304 Not Modified
+      Remote Address: 127.0.0.1:3000
+      Referrer Policy: no-referrer-when-downgrade`,
+    timeStamp: 6300
+  },
+  {
+    msg: `Request URL: http://localhost:3000/5.jpg
+      Request Method: GET
+      Status Code: 304 Not Modified
+      Remote Address: 127.0.0.1:3000
+      Referrer Policy: no-referrer-when-downgrade`,
+    timeStamp: 6300
+  },
+  {
+    msg: `Request URL: http://localhost:3000/6.jpg
+      Request Method: GET
+      Status Code: 304 Not Modified
+      Remote Address: 127.0.0.1:3000
+      Referrer Policy: no-referrer-when-downgrade`,
+    timeStamp: 6300
+  },
+  {
+    msg: `Request URL: http://localhost:3000/7.jpg
+      Request Method: GET
+      Status Code: 304 Not Modified
+      Remote Address: 127.0.0.1:3000
+      Referrer Policy: no-referrer-when-downgrade`,
+    timeStamp: 6300
+  },
+  {
+    msg: `Request URL: http://localhost:3000/8.jpg
+      Request Method: GET
+      Status Code: 304 Not Modified
+      Remote Address: 127.0.0.1:3000
+      Referrer Policy: no-referrer-when-downgrade`,
+    timeStamp: 6300
+  },
+  {
+    msg: `Request URL: http://localhost:3000/9.jpg
+      Request Method: GET
+      Status Code: 304 Not Modified
+      Remote Address: 127.0.0.1:3000
+      Referrer Policy: no-referrer-when-downgrade`,
+    timeStamp: 6300
+  },
+  {
+    msg: `Request URL: http://localhost:3000/10.jpg
+      Request Method: GET
+      Status Code: 304 Not Modified
+      Remote Address: 127.0.0.1:3000
+      Referrer Policy: no-referrer-when-downgrade`,
+    timeStamp: 6300
+  },
+  {
+    msg: `Request URL: http://localhost:3000/static/js/bundle.js
+      Request Method: GET
+      Status Code: 304 Not Modified
+      Remote Address: 127.0.0.1:3000
+      Referrer Policy: no-referrer-when-downgrade`,
+    timeStamp: 15100
+  },
+  {
+    msg: `Request URL: http://localhost:3000/static/js/bundle.js.map
+      Request Method: GET
+      Status Code: 304 Not Modified
+      Remote Address: 127.0.0.1:3000
+      Referrer Policy: no-referrer-when-downgrade`,
+    timeStamp: 15100
+  },
+  {
+    msg: `Request URL: http://localhost:3000/static/js/bundle.js
+      Request Method: GET
+      Status Code: 304 Not Modified
+      Remote Address: 127.0.0.1:3000
+      Referrer Policy: no-referrer-when-downgrade`,
+    timeStamp: 16400
+  },
+  {
+    msg: `Request URL: http://localhost:3000/static/js/bundle.js.map
+      Request Method: GET
+      Status Code: 304 Not Modified
+      Remote Address: 127.0.0.1:3000
+      Referrer Policy: no-referrer-when-downgrade`,
+    timeStamp: 16400
+  },
+  {
+    msg: `Request URL: http://localhost:3000/static/js/bundle.js
+      Request Method: GET
+      Status Code: 304 Not Modified
+      Remote Address: 127.0.0.1:3000
+      Referrer Policy: no-referrer-when-downgrade`,
+    timeStamp: 17100
+  },
+  {
+    msg: `Request URL: http://localhost:3000/static/js/bundle.js.map
+      Request Method: GET
+      Status Code: 304 Not Modified
+      Remote Address: 127.0.0.1:3000
+      Referrer Policy: no-referrer-when-downgrade`,
+    timeStamp: 17100
+  },
+  {
+    msg: `Request URL: http://localhost:3000/static/js/bundle.js
+      Request Method: GET
+      Status Code: 304 Not Modified
+      Remote Address: 127.0.0.1:3000
+      Referrer Policy: no-referrer-when-downgrade`,
+    timeStamp: 17300
+  },
+  {
+    msg: `Request URL: http://localhost:3000/static/js/bundle.js.map
+      Request Method: GET
+      Status Code: 304 Not Modified
+      Remote Address: 127.0.0.1:3000
+      Referrer Policy: no-referrer-when-downgrade`,
+    timeStamp: 17300
+  }
 ];
 
 class Playback extends React.Component {
