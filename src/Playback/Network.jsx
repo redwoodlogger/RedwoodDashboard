@@ -18,7 +18,7 @@ const Network = props => (
             border: solid #e5e5e5 1px;
             border-radius: 8px;
             width: 100%;
-            height: 160px;
+            height: 295px;
             overflow: auto;
             padding: 5px;
           `}

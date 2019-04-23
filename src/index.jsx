@@ -323,12 +323,14 @@ const App = () => (
           height: 100% !important;
           display: flex;
           flex-direction: column;
+          background: lightgrey;
         }
         .rr-player__frame {
-          height: 410px !important;
+          height: 585px !important;
+          background: lightgrey;
         }
         .replayer-wrapper {
-          transform: scale(0.58) translate(0%, -35%) !important;
+          transform: scale(0.8) translate(35%, -12%) !important;
         }
       `}
     />

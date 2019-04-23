@@ -25,7 +25,7 @@ const Console = props => (
     </div>
     <div
       css={css`
-        height: 471px;
+        height: 795px;
         overflow-y: auto;
         overflow-x: hidden;
         border-top: 1px solid #e5e5e5;
